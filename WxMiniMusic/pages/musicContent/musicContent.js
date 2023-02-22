@@ -4,8 +4,9 @@ var GLobalStepperId = 0
 var GlobalSliderPos = 0
 var GlobalPriorityPos = -1;
 
-const GlobalDominName = "127.0.0.1";
-const GlobalPort = 1200;
+const GlobalDominName = getApp().globalData.globalDominName
+const GlobalPort = getApp().globalData.globalPort
+
 const TIME_BREAK = 150;
 
 function SendHttpRequest(PageItem, DominName, Port, Datas, TidyFunction) {

@@ -1,0 +1,15 @@
+/* pages/my/my.wxss */
+.in {
+    border-radius: 50rpx;
+
+}
+
+.search {
+    display: flex;
+
+}
+
+.im {
+    width: 25px;
+    height: 25px;
+}

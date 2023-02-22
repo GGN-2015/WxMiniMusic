@@ -205,7 +205,7 @@ def makeUnFollow(nickName, name):
         mem[nickName]['Collection'] = newCollection
         saveDB(mem, 'user.json')
 
-def getMusicInfo(name):
+def MusicInfoDetail(name):
     data = {
         "found": False
     }
@@ -217,7 +217,9 @@ def getMusicInfo(name):
             x["found"] = True
             x["image"] = ImageWrap(x["image"])
             x["source"] = ImageWrap(x["source"])
-    
+            x["play"] += 1 # 播放数 += 1
+
+    saveDB(mem, 'user.json')
     return {
         'result': data
     }
@@ -266,7 +268,7 @@ def getDataByInput(inputData): # 根据输入获取数据
         data = getCollection(inputData.get("nickName"), inputData.get("count"))
 
     elif inputData.get("type") == "MusicInfoDetail":
-        data = getMusicInfo(inputData.get('name'))
+        data = MusicInfoDetail(inputData.get('name'))
 
     elif inputData.get("type") == "SetFollow":
         setFollow(inputData.get("nickName"), inputData.get("name"))

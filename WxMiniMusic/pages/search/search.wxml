@@ -1,0 +1,28 @@
+<!--pages/my/my.wxml-->
+<view class="search"
+  wx:if="{{!focus}}"
+
+  >
+  <image class="im" src="../../icon/search.png" mode="scaleToFill"/>
+  <input bindinput="handleinput" bindfocus="handlefocus" type="text" placeholder="搜索"/>
+</view>
+<view
+  wx:if="{{focus}}"
+  class="search"
+  >
+  
+  <input bindinput="handleinput"auto-focus="true" type="text" placeholder="搜索"/>
+  <image class="im" 
+  bindtap="handletap"
+  src="../../icon/del.png" mode="scaleToFill"/>
+</view>
+
+<scroll-view scroll-y="true">
+  <view wx:for="{{ms}}" wx:key="*this"
+    class="s_v"
+  >
+    <view>
+      <text>{{item.name}}{{item.composer}}</text>
+    </view>
+  </view>
+</scroll-view>
