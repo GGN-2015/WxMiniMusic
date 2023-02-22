@@ -1,7 +1,8 @@
 {
   "pages":[
-    "pages/search/search",
+    "pages/genre/genre",
     "pages/home/home",
+    "pages/search/search",
     "pages/musicContent/musicContent"
   ],
   "window":{

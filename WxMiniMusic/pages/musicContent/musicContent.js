@@ -2,7 +2,7 @@
 var GLobalIsPlay = false
 var GLobalStepperId = 0
 var GlobalSliderPos = 0
-var GlobalPriorityPos = -1;
+var GlobalPriorityPos = 0;
 
 const GlobalDominName = getApp().globalData.globalDominName
 const GlobalPort = getApp().globalData.globalPort
@@ -104,9 +104,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        if (this.data.name == "") { // test page
-            this.data.name = "测试音乐"
-        }
+        console.log(options)
+
+        this.data.name = options.name ? options.name : "测试音乐";
         SendHttpRequest(this, GlobalDominName, GlobalPort, {
             type: "MusicInfoDetail",
             name: this.data.name
@@ -164,6 +164,7 @@ Page({
     onReady() {
         var bgmM = wx.getBackgroundAudioManager();
         setTimeout(function(){
+            bgmM.seek(0)
             bgmM.pause()
         }, TIME_BREAK * 4)
     },
@@ -178,8 +179,10 @@ Page({
      */
     onHide() {
         if(GLobalIsPlay == true) {
-            PauseOrPlay({})
+            var bgmM = wx.getBackgroundAudioManager()
+            bgmM.pause()
         }
+        GlobalPriorityPos = 0
     },
 
     /**
@@ -187,8 +190,10 @@ Page({
      */
     onUnload() {
         if(GLobalIsPlay == true) {
-            PauseOrPlay({})
+            var bgmM = wx.getBackgroundAudioManager()
+            bgmM.pause()
         }
+        GlobalPriorityPos = 0
     },
 
     /**

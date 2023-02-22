@@ -1,0 +1,58 @@
+/* pages/genre/genre.wxss */
+.classification{
+    display: flex;
+    justify-content: center;
+}
+.parent{
+    display: flex;
+    justify-content: space-between;
+  }
+   
+  .son{
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 19px;
+    color: #444040;
+    padding-left: 5px;
+  }
+  .son span{
+    padding-left: 10px;
+  }
+  .active{
+    color:#0e0d0d ;
+    border-left: 3px solid #FF5934;
+    font-size: 15px;
+  }
+   
+
+  .MixItem{
+    display: flex;
+    justify-content: space-between;
+    height: 90px;
+    width: 270px;
+    background: #F8F8F8;
+    margin: 10px auto;
+    border-radius: 6px;
+  }
+  .MixPic{
+    margin: auto auto;
+    width: 0px;
+  }
+  .MixPic image{
+    height: 70px;
+    width: 70px;
+    margin: auto auto;
+  }
+  .MixText{
+    /* background: yellow; */
+    margin: auto auto;
+    color: #7A7A7A;
+    font-size: 13px;
+    width: 180px;
+  }
+  .title{
+   margin-bottom: 6px;
+   font-size: 15px;
+   color:#444040
+  }

@@ -1,0 +1,39 @@
+<!--pages/genre/genre.wxml-->
+<view class="classification">歌曲分类</view>
+<view class="parent">
+  <!-- 左侧滚动区域 -->
+  <scroll-view style="height: calc(100vh);width:25vw;" scroll-y>
+    <view class="fa">
+      <view class="son" wx:for="{{itemList}}" wx:key="id" bindtap="selected" data-id="{{item.name}}">
+      <!---->
+      {{item.name}}</view>
+    <!--<span class="{{item.select !=0 ? 'active' : ''}}">{{item.name}}</span>-->
+    </view>
+  </scroll-view>
+ 
+  <!-- 右侧滚动区域 -->
+  <scroll-view style="height: calc(100vh);width:75vw;" scroll-y>
+    <view class="fa">
+      <view style="text-align: center;">
+      
+      </view>
+
+      <!-- 小板块 -->
+      <view class="item" wx:for="{{test}}" wx:key="name">
+            <navigator url="/pages/musicContent/musicContent?name={{item.name}}">
+              <view class="MixPic">
+                <image src="{{item.image}}"></image>
+              </view>
+              <view class="MixText">
+                <view class="title">{{item.name}}</view>
+                <view class="singer">{{item.composer}} </view>
+              </view>
+       
+            </navigator>
+       
+      </view>
+      <!-- 小板块结束 -->
+    </view>   <!-- fa结束 -->
+  </scroll-view>    <!-- 右侧滚动区域结束 -->
+</view><!-- parent结束 -->
+

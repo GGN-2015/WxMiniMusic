@@ -219,7 +219,7 @@ def MusicInfoDetail(name):
             x["source"] = ImageWrap(x["source"])
             x["play"] += 1 # 播放数 += 1
 
-    saveDB(mem, 'user.json')
+    saveDB(mem, 'music.json')
     return {
         'result': data
     }

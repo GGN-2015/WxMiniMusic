@@ -1,10 +1,9 @@
 <!--pages/home/home.wxml-->
 
 <view class="w">
-  <navigator id="1" url="../my/my?id=nnn" class="nn">
+  <navigator id="1" url="../search/search?id=nnn" class="nn">
     <button
-      class="button_search"
-      >
+      class="button_search">
       搜索
       </button>
   </navigator>
