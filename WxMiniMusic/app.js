@@ -22,12 +22,14 @@ App({
         return this.globalData.userInfo != null
     },
     TryLogin(success) {
-        wx.getUserProfile({
-            desc: '用于绑定收藏夹',
-            success: ret => {
-                this.globalData.userInfo = ret.userInfo
-                success()
-            }
-        })
+        if(!this.isLogin()) {
+            wx.getUserProfile({
+                desc: '用于绑定收藏夹',
+                success: ret => {
+                    this.globalData.userInfo = ret.userInfo
+                    success()
+                }
+            })
+        }
     }
 })

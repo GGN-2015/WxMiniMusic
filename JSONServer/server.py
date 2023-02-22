@@ -145,7 +145,7 @@ def MusicMatch(musicObj, match) -> bool:
     return ans
 
 def getMusicSearch(match, cnt):
-    cnt = IntWrap(cnt)
+    # cnt = IntWrap(cnt)
 
     mem = loadDB("music.json")
     ans = []
@@ -158,7 +158,7 @@ def getMusicSearch(match, cnt):
             })
     
     return {
-        'result': ans[:cnt]
+        'result': ans
     }
 
 def getCollection(nickname, cnt):

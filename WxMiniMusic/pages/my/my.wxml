@@ -1,0 +1,17 @@
+<!--pages/my/my.wxml-->
+<block wx:if="{{isLogin != true}}">
+  <button type="primary" bindtap="handleTap">登录</button>
+  <text>尚未登录</text>
+</block>
+<block wx:else>
+  <image src="{{avatarUrl}}" mode=""/>
+  <block 
+    wx:for="{{collection}}"
+    wx:key="name">
+    <view>
+      <button bindtap="UnFollow" data-name="{{item.name}}">取消关注</button>
+      <image src="{{item.image}}" mode=""/>
+      {{item.name}}{{item.composer}}
+    </view>
+  </block>
+</block>

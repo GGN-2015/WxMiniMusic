@@ -2,6 +2,7 @@
   "pages":[
     "pages/home/home",
     "pages/genre/genre",
+    "pages/my/my",
     "pages/search/search",
     "pages/musicContent/musicContent"
   ],
@@ -12,8 +13,5 @@
     "navigationBarTextStyle":"black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json",
-  "requiredBackgroundModes": [
-    "audio"
-  ]
+  "sitemapLocation": "sitemap.json"
 }

@@ -11,7 +11,7 @@
   class="search"
   >
   
-  <input bindinput="handleinput"auto-focus="true" type="text" placeholder="搜索"/>
+  <input bindinput="handleinput" autofocus="true" type="text" placeholder="搜索"/>
   <image class="im" 
   bindtap="handletap"
   src="../../icon/del.png" mode="scaleToFill"/>
@@ -22,7 +22,9 @@
     class="s_v"
   >
     <view>
+    <navigator url="/pages/musicContent/musicContent?name={{item.name}}">
       <text>{{item.name}}{{item.composer}}</text>
+    </navigator>
     </view>
   </view>
 </scroll-view>
