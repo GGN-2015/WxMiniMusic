@@ -205,15 +205,29 @@ def makeUnFollow(nickName, name):
         mem[nickName]['Collection'] = newCollection
         saveDB(mem, 'user.json')
 
+def CopyData(obj: str):
+    if type(obj) == list:
+        arr = []
+        for x in obj:
+            arr.append(CopyData(x))
+        return arr
+    elif type(obj) == dict:
+        arr = {}
+        for x in obj:
+            arr[CopyData(x)] = CopyData(obj[x])
+        return arr
+    else:
+        return obj
+
 def MusicInfoDetail(name):
     data = None
 
     mem = loadDB('music.json')
     for x in mem:
         if SafeGet(x, 'name') == name:
-            data = x
-            x["image"] = ImageWrap(x["image"])
-            x["source"] = ImageWrap(x["source"])
+            data = CopyData(x)
+            data["image"] = ImageWrap(x["image"])
+            data["source"] = ImageWrap(x["source"])
             x["play"] += 1 # 播放数 += 1
 
     saveDB(mem, 'music.json')

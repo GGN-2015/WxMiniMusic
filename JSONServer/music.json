@@ -12,12 +12,12 @@
     {
         "name": "白日",
         "composer": "king ghu",
-        "image": "http://127.0.0.1:8000/pic/br.jpg",
+        "image": "pic/br.jpg",
         "category": [
             "爱情",
             "动漫"
         ],
-        "source": "http://127.0.0.1:8000/music/Test.mp3",
+        "source": "music/Test.mp3",
         "play": 2,
         "found": true
     },
@@ -46,12 +46,12 @@
     {
         "name": "情人",
         "composer": "蔡徐坤",
-        "image": "http://127.0.0.1:8000/pic/qr.jpg",
+        "image": "pic/qr.jpg",
         "category": [
             "流行",
             "爱情"
         ],
-        "source": "http://127.0.0.1:8000/music/Test.mp3",
+        "source": "music/Test.mp3",
         "play": 2,
         "found": true
     },
@@ -69,11 +69,11 @@
     {
         "name": "独到",
         "composer": "高睿",
-        "image": "http://127.0.0.1:8000/pic/dd.jpg",
+        "image": "pic/dd.jpg",
         "category": [
             "爱情"
         ],
-        "source": "http://127.0.0.1:8000/music/Test.mp3",
+        "source": "music/Test.mp3",
         "play": 2,
         "found": true
     },
@@ -85,7 +85,7 @@
             "纯音乐"
         ],
         "source": "music/Test.mp3",
-        "play": 1
+        "play": 2
     },
     {
         "name": "勇气",
