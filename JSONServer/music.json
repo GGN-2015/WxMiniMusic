@@ -1,5 +1,13 @@
 [
     {
+        "name": "测试音乐",
+        "composer": "水濑祈",
+        "image": "pic/error.png",
+        "category": [ "动漫"],
+        "source": "music/Test.mp3",
+        "play": 1
+    },
+    {
         "name": "白日",
         "composer": "king ghu",
         "image": "pic/br.jpg",

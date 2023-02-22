@@ -9,7 +9,7 @@ def saveDB(mem: dict, filename: str):
 
 host_ip = '0.0.0.0'
 host = (host_ip, 1200)
-IMG_IP = "192.168.43.123" # TODO: 这里最重要改成 127.0.0.1
+IMG_IP = "127.0.0.1" # TODO: 这里最终要改成 127.0.0.1
 IMG_PORT = 8000 # 对象服务器接口
 
 def SafeGet(x, key):
@@ -205,6 +205,38 @@ def makeUnFollow(nickName, name):
         mem[nickName]['Collection'] = newCollection
         saveDB(mem, 'user.json')
 
+def getMusicInfo(name):
+    data = {
+        "found": False
+    }
+
+    mem = loadDB('music.json')
+    for x in mem:
+        if SafeGet(x, 'name') == name:
+            data = x
+            x["found"] = True
+            x["image"] = ImageWrap(x["image"])
+            x["source"] = ImageWrap(x["source"])
+    
+    return {
+        'result': data
+    }
+
+def setFollow(nickName, name):
+    if nickName is None or name is None:
+        return
+    mem = loadDB('user.json')
+    
+    if mem.get(nickName) is None:
+        mem[nickName] = {
+            "Collection": []
+        }
+    
+    if name not in mem[nickName]['Collection']:
+        mem[nickName]['Collection'].append(name)
+        saveDB(mem, 'user.json')
+
+
 def getDataByInput(inputData): # 根据输入获取数据    
     data = {'result' : 'type unknown.'}
 
@@ -232,6 +264,14 @@ def getDataByInput(inputData): # 根据输入获取数据
     elif inputData.get("type") == "UnFollow":
         makeUnFollow(inputData.get("nickName"), inputData.get("name"))
         data = getCollection(inputData.get("nickName"), inputData.get("count"))
+
+    elif inputData.get("type") == "MusicInfoDetail":
+        data = getMusicInfo(inputData.get('name'))
+
+    elif inputData.get("type") == "SetFollow":
+        setFollow(inputData.get("nickName"), inputData.get("name"))
+        data = getCollection(inputData.get("nickName"), inputData.get("count"))
+        pass
 
     print("return data", data)
     return data

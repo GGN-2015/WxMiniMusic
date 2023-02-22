@@ -1,0 +1,16 @@
+/* pages/musicContent/musicContent.wxss */
+.circleImage {
+    width: 250rpx;
+    height: 250rpx;
+    border-radius: 130rpx;
+    border: 5px solid red;
+}
+
+@keyframes rotate{
+	0%{
+		transform: rotateZ(0deg);/*从0度开始*/
+	}
+	100%{
+		transform: rotateZ(360deg);/*360度结束*/
+	}
+}

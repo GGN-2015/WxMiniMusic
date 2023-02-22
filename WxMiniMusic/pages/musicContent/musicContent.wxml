@@ -1,0 +1,19 @@
+<!--pages/musicContent/musicContent.wxml-->
+<image src="{{musicInfo.image}}" class="circleImage" style="animation: {{animation}};"></image>
+<button bindtap="PauseOrPlay">暂停/启动</button>
+<slider class="apd-pro-slider" value="{{sliderPos}}"  bindchange="timeSliderChanged" 
+    selected-color="#20a3ff" block-size="12" block-color="#20a3ff" step="0.01"/>
+<view>
+{{musicInfo.name}} {{musicInfo.composer}} {{musicInfo.category}}
+</view>
+<block wx:if="{{isLogin}}">
+    <block wx:if="{{!followed}}">
+        <button bindtap="SetFollow">收藏</button>
+    </block>
+    <block wx:else>
+        已收藏
+    </block>
+</block>
+<block wx:else>
+    <button type="primary" bindtap="TryLogin">登录后可收藏</button>
+</block>
