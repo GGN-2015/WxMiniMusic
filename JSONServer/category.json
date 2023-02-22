@@ -1,0 +1,18 @@
+[
+    {
+        "name": "爱情",
+        "image": "pic/aq.jpg"
+    },
+    {
+        "name": "流行",
+        "image": "pic/lx.jpg"
+    },
+    {
+        "name": "纯音乐",
+        "image": "pic/cyy.jpg"
+    },
+    {
+        "name": "动漫",
+        "image": "pic/dm.jpg"
+    }
+]

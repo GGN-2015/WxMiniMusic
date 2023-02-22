@@ -1,0 +1,14 @@
+[
+    {
+        "name": "中文女",
+        "image": "pic/zwn.jpg"
+    },
+    {
+        "name": "中文男",
+        "image": "pic/zwnan.jpg"
+    },
+    {
+        "name": "流行",
+        "image": "pic/glx.jpg"
+    }
+]

@@ -1,0 +1,82 @@
+[
+    {
+        "name": "白日",
+        "composer": "king ghu",
+        "image": "pic/br.jpg",
+        "category": ["爱情", "动漫"],
+        "source": "",
+        "play": 1
+    },
+    {
+        "name": "johnny boy",
+        "composer": "santiano",
+        "image": "pic/jb.jpg",
+        "category": ["动漫", "纯音乐"],
+        "source": "",
+        "play": 1
+    },
+    {
+        "name": "漠河舞厅",
+        "composer": "柳爽",
+        "image": "pic/mhwt.jpg",
+        "category": ["纯音乐", "流行"],
+        "source": "",
+        "play": 1
+    },
+    {
+        "name": "情人",
+        "composer": "蔡徐坤",
+        "image": "pic/qr.jpg",
+        "category": ["流行", "爱情"],
+        "source": "",
+        "play": 1
+    },
+    {
+        "name": "千禧",
+        "composer": "徐秉龙",
+        "image": "pic/qx.jpg",
+        "category": ["流行", "动漫"],
+        "source": "",
+        "play": 1
+    },
+    {
+        "name": "独到",
+        "composer": "高睿",
+        "image": "pic/dd.jpg",
+        "category": ["爱情"],
+        "source": "",
+        "play": 1
+    },
+    {
+        "name": "知足",
+        "composer": "五月天",
+        "image": "pic/zz.jpg",
+        "category": ["纯音乐"],
+        "source": "",
+        "play": 1
+    },
+    {
+        "name": "勇气",
+        "composer": "梁静茹",
+        "image": "pic/yq.jpg",
+        "category": ["纯音乐"],
+        "source": "",
+        "play": 1
+    },
+    {
+        "name": "Last Dance",
+        "composer": "伍佰",
+        "image": "pic/ld.png",
+        "category": ["动漫"],
+        "source": "",
+        "play": 1
+    },
+    {
+        "name": "戒烟",
+        "composer": "李荣浩",
+        "image": "pic/jy.jpg",
+        "category": ["动漫", "爱情"],
+        "source": "",
+        "play": 1
+    }
+]
