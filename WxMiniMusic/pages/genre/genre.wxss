@@ -1,32 +1,35 @@
 /* pages/genre/genre.wxss */
-.classification{
+.classification {
     display: flex;
     justify-content: center;
 }
-.parent{
+
+.parent {
     display: flex;
     justify-content: space-between;
-  }
-   
-  .son{
+}
+
+.son {
     width: 60px;
     height: 60px;
     line-height: 60px;
     font-size: 19px;
     color: #444040;
     padding-left: 5px;
-  }
-  .son span{
+}
+
+.son span {
     padding-left: 10px;
-  }
-  .active{
-    color:#0e0d0d ;
+}
+
+.active {
+    color: #0e0d0d;
     border-left: 3px solid #FF5934;
     font-size: 15px;
-  }
-   
+}
 
-  .MixItem{
+
+.MixItem {
     display: flex;
     justify-content: space-between;
     height: 90px;
@@ -34,25 +37,41 @@
     background: #F8F8F8;
     margin: 10px auto;
     border-radius: 6px;
-  }
-  .MixPic{
+}
+
+.MixPic {
     margin: auto auto;
     width: 0px;
-  }
-  .MixPic image{
+}
+
+.MixPic image {
     height: 70px;
     width: 70px;
     margin: auto auto;
-  }
-  .MixText{
+}
+
+.MixText {
     /* background: yellow; */
     margin: auto auto;
     color: #7A7A7A;
     font-size: 13px;
     width: 180px;
-  }
-  .title{
-   margin-bottom: 6px;
-   font-size: 15px;
-   color:#444040
-  }
+}
+
+.title {
+    margin-bottom: 6px;
+    font-size: 15px;
+    color: #444040
+}
+
+.flex-item {
+    display: flex;
+}
+
+.flex-item .flex-item-image {
+    flex: 1;
+}
+
+.flex-item .flex-item-text {
+    flex: 2;
+}

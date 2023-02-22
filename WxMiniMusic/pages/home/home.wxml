@@ -15,7 +15,7 @@
   <view class="page-section-spacing">
         <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" >
           <view wx:for="{{mc}}" wx:key="*this" id="demo1" class="scroll-view-item_H ">
-            <navigator  url="../my/my?id={{item.name}}" open-type="redirect"><image 
+            <navigator  url="../genre/genre?id={{item.name}}" open-type="navigate"><image 
             class="image_f cen"
             src="{{item.image}}" mode="scaleToFill"/>
             <view class="cen">
@@ -60,12 +60,12 @@
   class="nv"
     id=""
     wx:for="{{rank}}" 
-    wx:key="*this"
-  url="" >
+    wx:key="name"
+  url="/pages/musicContent/musicContent?name={{item.name}}" >
    <view  class="vv">{{index+1}}.{{item.name}}</view> {{item.composer}}
   </navigator>
 </view>
-  
+
 
 
  </view>

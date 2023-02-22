@@ -88,7 +88,7 @@ def getCategoryMusicCount(name):
     return cnt
 
 def getCategory(cnt: int):
-    cnt = IntWrap(cnt)
+    # cnt = IntWrap(cnt)
     
     mem = loadDB('category.json')
     data = []
@@ -206,21 +206,19 @@ def makeUnFollow(nickName, name):
         saveDB(mem, 'user.json')
 
 def MusicInfoDetail(name):
-    data = {
-        "found": False
-    }
+    data = None
 
     mem = loadDB('music.json')
     for x in mem:
         if SafeGet(x, 'name') == name:
             data = x
-            x["found"] = True
             x["image"] = ImageWrap(x["image"])
             x["source"] = ImageWrap(x["source"])
             x["play"] += 1 # 播放数 += 1
 
     saveDB(mem, 'music.json')
     return {
+        'found': True if data is not None else False,
         'result': data
     }
 

@@ -111,8 +111,7 @@ Page({
             type: "MusicInfoDetail",
             name: this.data.name
         }, (ret) => {
-            console.log(ret)
-            if (ret.result.found == true) {
+            if (ret.found == true) {
                 this.setData({
                     musicInfo: ret.result
                 })

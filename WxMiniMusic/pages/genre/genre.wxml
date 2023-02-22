@@ -20,11 +20,11 @@
 
       <!-- 小板块 -->
       <view class="item" wx:for="{{test}}" wx:key="name">
-            <navigator url="/pages/musicContent/musicContent?name={{item.name}}">
-              <view class="MixPic">
+            <navigator class="flex-item" url="/pages/musicContent/musicContent?name={{item.name}}">
+              <view class="MixPic flex-item-image">
                 <image src="{{item.image}}"></image>
               </view>
-              <view class="MixText">
+              <view class="MixText flex-item-text">
                 <view class="title">{{item.name}}</view>
                 <view class="singer">{{item.composer}} </view>
               </view>

@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/genre/genre",
     "pages/home/home",
+    "pages/genre/genre",
     "pages/search/search",
     "pages/musicContent/musicContent"
   ],
