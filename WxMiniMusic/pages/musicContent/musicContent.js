@@ -35,7 +35,7 @@ function SendHttpRequest(PageItem, DominName, Port, Datas, TidyFunction) {
 
 
 function BeginStepper(PageItem, timeStep, stepperId) {
-    if(GlobalSliderPos == 100) {
+    if (GlobalSliderPos == 100) {
         GLobalIsPlay = false
         PageItem.setData({
             animation: "none"
@@ -46,10 +46,10 @@ function BeginStepper(PageItem, timeStep, stepperId) {
         setTimeout(function () {
             if (GLobalStepperId === stepperId) {
                 var sliderPos;
-                
-                if(GlobalPriorityPos < 0) {
+
+                if (GlobalPriorityPos < 0) {
                     sliderPos = GlobalSliderPos + (100 / 300);
-                }else {
+                } else {
                     sliderPos = GlobalPriorityPos;
                     GlobalPriorityPos = -1;
                 }
@@ -104,9 +104,19 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        console.log(options)
-
-        this.data.name = options.name ? options.name : "测试音乐";
+        try {
+            this.data.name = options.name;
+        }catch(err) {
+            this.data.name = "测试歌曲";
+        }
+        if(getApp().isLogin()) {
+            this.setData({
+                isLogin: true,
+                nickName: getApp().globalData.userInfo.nickName,
+                avatarUrl: getApp().globalData.userInfo.avatarUrl
+            })
+            this.UpdateFollow()
+        }
         SendHttpRequest(this, GlobalDominName, GlobalPort, {
             type: "MusicInfoDetail",
             name: this.data.name
@@ -162,7 +172,7 @@ Page({
      */
     onReady() {
         var bgmM = wx.getBackgroundAudioManager();
-        setTimeout(function(){
+        setTimeout(function () {
             bgmM.seek(0)
             bgmM.pause()
         }, TIME_BREAK * 4)
@@ -177,7 +187,7 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide() {
-        if(GLobalIsPlay == true) {
+        if (GLobalIsPlay == true) {
             var bgmM = wx.getBackgroundAudioManager()
             bgmM.pause()
         }
@@ -188,7 +198,7 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload() {
-        if(GLobalIsPlay == true) {
+        if (GLobalIsPlay == true) {
             var bgmM = wx.getBackgroundAudioManager()
             bgmM.pause()
         }
@@ -259,32 +269,19 @@ Page({
     },
 
     TryLogin(e) {
-        if(this.data.isLogin == false) {
-            wx.getUserProfile({
-              desc: '绑定收藏夹',
-              success: (ret) => {
-                const nickName = ret.userInfo.nickName;
-                this.setData({
-                    isLogin: true,
-                    nickName,
-                    avatarUrl: ret.userInfo.avatarUrl
-                })
-                SendHttpRequest(this, GlobalDominName, GlobalPort, {
-                    type: "Collection",
-                    nickName: nickName
-                }, (ret) => {
-                    var followed = false;
-                    ret.result.forEach(v => {
-                        if(v.name == this.data.name) {
-                            followed = true
-                        }
+        if (this.data.isLogin == false) {
+            var PageItem = this;
+            if (!getApp().isLogin()) {
+                getApp().TryLogin(function () {
+                    const nickName = getApp().globalData.userInfo.nickName;
+                    PageItem.setData({
+                        isLogin: true,
+                        nickName,
+                        avatarUrl: getApp().globalData.userInfo.avatarUrl
                     })
-                    this.setData({
-                        followed
-                    })
+                    PageItem.UpdateFollow()
                 })
-              }
-            })
+            }
         }
     },
 
@@ -296,11 +293,29 @@ Page({
         }, (ret) => {
             var followed = false;
             ret.result.forEach(v => {
-                if(v.name == this.data.name) {
+                if (v.name == this.data.name) {
                     followed = true
                 }
             })
             this.setData({
+                followed
+            })
+        })
+    },
+
+    UpdateFollow() {
+        var PageItem = this
+        SendHttpRequest(PageItem, GlobalDominName, GlobalPort, {
+            type: "Collection",
+            nickName: getApp().globalData.userInfo.nickName
+        }, (ret) => {
+            var followed = false;
+            ret.result.forEach(v => {
+                if (v.name == PageItem.data.name) {
+                    followed = true
+                }
+            })
+            PageItem.setData({
                 followed
             })
         })
