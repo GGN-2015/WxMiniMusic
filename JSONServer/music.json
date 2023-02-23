@@ -52,7 +52,7 @@
             "爱情"
         ],
         "source": "music/Test.mp3",
-        "play": 38,
+        "play": 40,
         "found": true
     },
     {
@@ -64,7 +64,7 @@
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 14
+        "play": 15
     },
     {
         "name": "独到",

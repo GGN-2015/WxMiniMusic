@@ -84,7 +84,7 @@ function SetMusicAndStop(PageObj, music_url) {
     var bgmM = wx.getBackgroundAudioManager()
     bgmM.src = music_url;
     bgmM.title = "tmp"
-    GLobalIsPlay = false
+    SetGlobalIsPlay(PageObj, false)
 }
 
 Page({
@@ -162,7 +162,7 @@ Page({
                 animation: 'none'
             })
             setTimeout(function () {
-                GLobalIsPlay = false
+                SetGlobalIsPlay(PageItem, false)
                 GlobalSliderPos = e.detail.value;
                 GlobalPriorityPos = e.detail.value;
 
@@ -232,7 +232,7 @@ Page({
 
     PauseOrPlay(e) {
         if (GLobalIsPlay === true) { // 暂停
-            GLobalIsPlay = false
+            SetGlobalIsPlay(this, false)
             console.log({
                 GLobalIsPlay
             })
@@ -243,7 +243,7 @@ Page({
                 animation: 'none'
             })
         } else { // 启动
-            GLobalIsPlay = true
+            SetGlobalIsPlay(this, true)
             console.log({
                 GLobalIsPlay
             })
