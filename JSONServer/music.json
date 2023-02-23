@@ -7,7 +7,7 @@
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 8
+        "play": 10
     },
     {
         "name": "白日",
@@ -18,7 +18,7 @@
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 7,
+        "play": 9,
         "found": true
     },
     {
@@ -41,7 +41,7 @@
             "流行"
         ],
         "source": "music/Test.mp3",
-        "play": 10
+        "play": 13
     },
     {
         "name": "情人",
@@ -52,7 +52,7 @@
             "爱情"
         ],
         "source": "music/Test.mp3",
-        "play": 29,
+        "play": 38,
         "found": true
     },
     {
@@ -64,7 +64,7 @@
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 11
+        "play": 14
     },
     {
         "name": "独到",

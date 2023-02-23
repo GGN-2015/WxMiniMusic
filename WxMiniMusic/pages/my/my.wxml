@@ -19,15 +19,38 @@
     </view>
     <block wx:for="{{collection}}" wx:key="name">
         <view class="collection-bar-view">
-            <image src="{{item.image}}" class="collection-bar-image" mode="widthFix" />
-            <view>
-                <text>{{item.name}}</text>
-                <text>{{item.composer}}</text>
-                <button bindtap="UnFollow" data-name="{{item.name}}">取消关注</button>
+            <view class="collection-left-bar-view" bindtap="UnFollow" data-name="{{item.name}}">
+                <view>
+                    <view>
+                        <text class="text-followed" src="../../icon/star.png">★</text>
+                    </view>
+                    <view>
+                        <text>收藏</text>
+                    </view>
+                </view>
+            </view>
+            <view class="collection-right-bar-view" data-name="{{item.name}}" bindtap="NavigateToSondDetail">
+                <view>
+                    <image src="{{item.image}}" class="collection-bar-image" mode="widthFix" />
+                </view>
+                <view>
+                    <view class="song-name-text">
+                        <text>{{item.name}}</text>
+                    </view>
+                    <text class="composer-name-text">
+                        <text>{{item.composer}}</text>
+                    </text>
+                </view>
             </view>
         </view>
     </block>
     <block wx:if="{{collection.length == 0}}">
         你还未收藏歌曲，快去收藏吧
     </block>
+    <view class="feedback-view">
+        <image class="feedback-image" src="../../icon/feedback.png" mode="widthFix" />
+        <view class="feedback-text">
+            <text class="feedback-inner-text">意见反馈</text>
+        </view>
+    </view>
 </block>

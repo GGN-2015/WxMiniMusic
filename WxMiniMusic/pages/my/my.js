@@ -172,5 +172,12 @@ Page({
                 motto: ret.result
             })
         })
+    },
+
+    NavigateToSondDetail(e) {
+        const name = e.currentTarget.dataset.name;
+        wx.navigateTo({
+          url: '/pages/musicContent/musicContent?name=' + name,
+        })
     }
 })

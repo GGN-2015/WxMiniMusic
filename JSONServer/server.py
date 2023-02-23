@@ -258,6 +258,17 @@ def getRandomMotto():
         "result": mem[idx]
     }
 
+def getComposerTypeDetail(name):
+    mem = loadDB("composerType.json")
+    for x in mem:
+        if x.get('name') == name:
+            return {
+                "result": x.get("composer")
+            }
+    return {
+        "result": []
+    }
+
 def getDataByInput(inputData): # 根据输入获取数据    
     data = {'result' : 'type unknown.'}
 
@@ -295,6 +306,11 @@ def getDataByInput(inputData): # 根据输入获取数据
     
     elif inputData.get("type") == "GetRandomMotto":
         data = getRandomMotto()
+
+    elif inputData.get("type") == "ComposerTypeDetail":
+        data = getComposerTypeDetail(inputData.get("name"))
+        pass
+
 
     print("return data", data)
     return data

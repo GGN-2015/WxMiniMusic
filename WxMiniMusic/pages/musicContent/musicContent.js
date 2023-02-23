@@ -10,9 +10,6 @@ const GlobalPort = getApp().globalData.globalPort
 const TIME_BREAK = 150;
 
 function SendHttpRequest(PageItem, DominName, Port, Datas, TidyFunction) {
-    PageItem.setData({
-        httpRetObj: "{}"
-    })
     wx.request({
         url: 'http://' + DominName + ':' + Port,
         method: 'POST',
@@ -33,10 +30,16 @@ function SendHttpRequest(PageItem, DominName, Port, Datas, TidyFunction) {
     })
 }
 
+function SetGlobalIsPlay(PageItem, flag) {
+    GLobalIsPlay = flag;
+    PageItem.setData({
+        isPlay: flag
+    })
+}
 
 function BeginStepper(PageItem, timeStep, stepperId) {
     if (GlobalSliderPos == 100) {
-        GLobalIsPlay = false
+        SetGlobalIsPlay(PageItem, false)
         PageItem.setData({
             animation: "none"
         })
@@ -97,7 +100,8 @@ Page({
         isLogin: false,
         followed: false,
         nickName: "",
-        avatarUrl: ""
+        avatarUrl: "",
+        isPlay: false
     },
 
     /**
@@ -318,6 +322,19 @@ Page({
             PageItem.setData({
                 followed
             })
+        })
+    },
+
+    UnFollow(e) {
+        this.setData({
+            followed: false,
+        })
+        SendHttpRequest(this, GlobalDominName, GlobalPort, {
+            type: 'UnFollow',
+            nickName: this.data.nickName,
+            name: this.data.name
+        }, ret => {
+
         })
     }
 })

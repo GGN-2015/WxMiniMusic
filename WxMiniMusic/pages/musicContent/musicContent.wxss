@@ -1,9 +1,12 @@
 /* pages/musicContent/musicContent.wxss */
 .circleImage {
-    width: 250rpx;
-    height: 250rpx;
-    border-radius: 130rpx;
-    border: 5px solid red;
+    width: 290rpx;
+    height: 290rpx;
+    border-radius: 140rpx;
+    border: 5px solid #2B2B2B;
+    position:absolute;
+    left: 218rpx;
+    top: 362rpx;
 }
 
 @keyframes rotate{
@@ -13,4 +16,48 @@
 	100%{
 		transform: rotateZ(360deg);/*360度结束*/
 	}
+}
+
+.pic-view {
+    display: flex;
+}
+
+.pic-image {
+    flex: 1;
+}
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-bar-name {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.top-bar-composer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: grey;
+}
+
+page {
+    background: linear-gradient(white, #FFCCD5);
+}
+
+.controller-view {
+    display: flex;
+    width: 100%;
+}
+
+.controller-button-view {
+    flex: 1;
+}
+
+.controller-button {
+    margin: 5rpx;
 }
