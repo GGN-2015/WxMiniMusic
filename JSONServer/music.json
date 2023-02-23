@@ -30,7 +30,7 @@
             "纯音乐"
         ],
         "source": "music/jb.mp3",
-        "play": 46
+        "play": 47
     },
     {
         "name": "漠河舞厅",
@@ -52,7 +52,7 @@
             "爱情"
         ],
         "source": "music/情人.m4a",
-        "play": 92,
+        "play": 100,
         "found": true
     },
     {

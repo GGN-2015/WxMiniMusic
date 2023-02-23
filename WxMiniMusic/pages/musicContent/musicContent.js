@@ -215,20 +215,21 @@ Page({
 
         setTimeout(function () { // 此处需要异步调用相关接口
             const posNow = rate * bgmM.duration;
-            bgmM.seek(posNow);
+            if(bgmM.paused) bgmM.play()
+            bgmM.seek(posNow); // 只有 play 状态下可以 seek
             console.log({posNow})
 
-            if (!bgmM.paused) bgmM.pause()
-
-            PageItem.setData({
-                animation: GetStaticRotation()
-            })
             setTimeout(function () {
+                if(!bgmM.paused) bgmM.pause()
+                PageItem.setData({
+                    animation: GetStaticRotation()
+                })
+
                 SetGlobalIsPlay(PageItem, false)
                 GlobalSliderPos = e.detail.value;
                 GlobalPriorityPos = e.detail.value;
                 console.log(posNow);
-            }, TIME_BREAK);
+            }, TIME_BREAK * 4);
         }, TIME_BREAK)
     },
 
@@ -335,7 +336,7 @@ Page({
                     realTimeNow
                 })
                 bgmM.seek(timeNow)
-                console({timeNow})
+                console.log({timeNow})
             } else {
                 console.log("goes on")
             }
