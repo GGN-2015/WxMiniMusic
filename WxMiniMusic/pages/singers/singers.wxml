@@ -1,32 +1,29 @@
-<!--pages/genre/genre.wxml-->
-<view class="classification">歌曲分类🎵</view>
+<!--pages/singers/singers.wxml-->
+<view class="classification">歌手分类🧑‍</view>
 <view class="parent">
   <!-- 左侧滚动区域 -->
   <scroll-view style="height: calc(100vh);width:25vw;" scroll-y>
     <view class="left">
-      <view class="son" wx:for="{{itemList}}" wx:key="id" bindtap="selected" 
-      data-id="{{item.name}}">
+      <view class="son" wx:for="{{itemList}}" wx:key="id" bindtap="selected" data-id="{{item.name}}">
       {{item.name}}</view>
     </view>
   </scroll-view>
  
   <!-- 右侧滚动区域 -->
-  <scroll-view style="height: calc(100vh);width:75vw;white-space: nowrap;" scroll-y>
+  <scroll-view style="height: calc(100vh);width:275vw;white-space: nowrap;" scroll-y>
     <view class="right">
       <view style="text-align: center;">
-      
       </view>
 
       <!-- 小板块 -->
     <view class="Mixitem">
       <view class="item" wx:for="{{test}}" >
-            <navigator url="../../pages/musicContent/musicContent?name={{item.name}}">
+            <navigator class="navi" url="../../pages/search/search?id={{item.name}}">
               <view class="MixPic">
                 <image src="{{item.image}}"></image>
               </view>
               <view class="MixText">
                 <view class="title">{{item.name}}</view>
-                <view class="singer">{{item.composer}} </view>
               </view>
        
             </navigator>
@@ -36,4 +33,5 @@
     </view>   <!-- fa结束 -->
   </scroll-view>    <!-- 右侧滚动区域结束 -->
 </view><!-- parent结束 -->
+
 

@@ -14,11 +14,6 @@
   width: 10vw;
   height: 10vw;
 }
-.share_png{
-  width: 10vw;
-  height: 10vw;
-  
-}
 .nn{
   padding-left: 4vw;
   padding-top: 2vw;
@@ -53,18 +48,16 @@
  
 }
 .button_search{
-  
+  display: flex;
   padding: 0px 0px;
   border-radius: 50rpx;
   height: 8vw;
   align-content: flex-start;
-  background-color: rgb(228, 228, 228);
-  font-family: cursive;
-  flood-color: gray;
+  background: linear-gradient(to right, #D8DAF9, #F3D7F1);
 }
+
 .sv{
   display: flex;
- 
 }
 .c_xx{
   
@@ -104,8 +97,8 @@
 .image_f{
   width: 30vw;
   height: 30vw;
-  border-radius: 50rpx;
-  
+  border-radius: 25rpx;
+  box-shadow: 7rpx 7rpx #E7E6E5;
 }
 .text_f{
   display: flex;
@@ -121,7 +114,8 @@
 .a2{ 
   padding: 1vw;
   height: 3rpx;
-  border-bottom: 2rpx solid rgb(151, 151, 151);}
+  border-bottom: 2rpx solid white;
+}
 
 .a1{
   padding-left: 2vw;
@@ -131,5 +125,54 @@
   padding-top: 2vw;
 }
 .w{
-  background-color:#f6ffef ;
+    background: linear-gradient(to top right, white, pink);
+}
+
+.button_search_image {
+    width: 45rpx;
+    flex: 1;
+}
+
+.button_search_text_view {
+    padding-top: 6rpx;
+    flex: 10;
+}
+
+.button_search_image_view {
+    flex: 1;
+    padding-top: 10rpx;
+    padding-left: 13rpx;
+}
+
+.button_search_text {
+    font-size:small;
+    color: grey;
+    font-weight: bold;
+    padding-left: 10rpx;
+}
+
+.search_left {
+    flex: 6;
+}
+
+.search_right {
+    flex: 1;
+}
+
+.share_button {
+    opacity: 0%;
+}
+
+.share_png{
+    position: absolute;
+    width: 70rpx;
+    top: 20rpx;
+    left:640rpx;
+    z-index:0;
+}
+
+.my_title {
+    font-size: large;
+    font-weight: bold;
+    padding-left: 10rpx;
 }

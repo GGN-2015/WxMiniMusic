@@ -14,7 +14,7 @@
        class="search"
        >
   
-         <input id="input" bindinput="handleinput"auto-focus="true" type="text" placeholder="搜索"/>
+         <input id="input" bindinput="handleinput"auto-focus="true" type="text" placeholder="搜索" value="{{search}}"/>
           <image class="im vi" 
              bindtap="handletap"
               src="../../icon/del.png" mode="scaleToFill"/>

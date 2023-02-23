@@ -2,18 +2,28 @@
 
 <view class="w">
     <view class="search_b">
-        <navigator id="1" url="../search/search" class="nn">
-            <button class="button_search">
-                搜索
+        <view class="search_left">
+            <navigator id="1" url="../search/search" class="nn">
+                <view class="button_search">
+                    <view class="button_search_image_view">
+                        <image class="button_search_image" src="../../icon/search.png" mode="widthFix"/>
+                    </view>
+                    <view class="button_search_text_view" >
+                        <text class="button_search_text">搜索</text>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+        <view class="search_right">
+            <image class="share_png" src="../../icon/share.png" mode="widthFix" />
+            <button class="share_button" open-type="share">
+                你看不见
             </button>
-        </navigator>
-        <button class="bi" open-type="share" style="width:10vw">
-            <image class="share_png" src="../../icon/share.png" mode="aspectFill" />
-        </button>
+        </view>
     </view>
 
     <view class="a1">
-        歌曲分类
+        <text class="my_title" decode> 歌曲分类 &gt; </text>
     </view>
     <view class="page-section-spacing">
         <scroll-view class="scroll-view_H" scroll-x="true">
@@ -41,21 +51,21 @@
 
     </view>
     <view class="a1">
-        歌手分类>
+        <text class="my_title" decode> 歌手分类 &gt; </text>
     </view>
     <view class="page-section-spacing">
         <scroll-view class="scroll-view_H" scroll-x="true">
             <view wx:for="{{pc}}" wx:key="*this" id="demo1" class="scroll-view-item_H ">
                 <block wx:if="{{index<1}}">
-                    <navigator class="b1" url="../my/my?id={{item.name}}" open-type="redirect">
+                    <navigator class="b1" url="../singers/singers?id={{item.name}}" open-type="navigate">
                         <image class="image_f cen" src="{{item.image}}" mode="scaleToFill" />
                         <text class="cen">
                             {{item.name}}
                         </text>
                     </navigator>
                 </block>
-                <block wx:else="">
-                    <navigator url="../my/my?id={{item.name}}" open-type="redirect">
+                <block wx:else>
+                    <navigator url="../singers/singers?id={{item.name}}" open-type="navigate">
                         <image class="image_f cen" src="{{item.image}}" mode="scaleToFill" />
                         <text class="cen">
                             {{item.name}}
@@ -71,9 +81,8 @@
 
     </view>
 
-
     <view class="a1">
-        排行榜
+        <text class="my_title" decode> 排行榜 &gt; </text>
     </view>
     <view class="rank_border">
         <navigator class="nv" id="" wx:for="{{rank}}" wx:key="*this" 

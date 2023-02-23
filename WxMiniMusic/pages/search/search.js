@@ -34,7 +34,8 @@ Page({
     data: {
         ms: [],
         pr: [],
-        focus: false
+        focus: false,
+        search: ""
     },
     handlefocus(e) {
         this.setData({
@@ -60,10 +61,12 @@ Page({
     },
     handleinput(e) {
         console.log(e)
-
+        this.setData({
+            search: e.detail.value
+        })
         SendHttpRequest(this, GlobalDominName, GlobalPort, {
             type: "MusicSearch",
-            match: e.detail.value
+            match: this.data.search
         }, (ret) => {
             console.log(ret)
             this.setData({
@@ -75,15 +78,35 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        SendHttpRequest(this, GlobalDominName, GlobalPort, {
-            type: "MusicRank",
-            count: 10
-        }, (ret) => {
-            console.log(ret)
+        var content = ""
+        try {
+            content = options.id;
+        }catch(err) {
+            content = ""; // option.id undefined
+        }
+        if (content != "") {
             this.setData({
-                ms: ret.result
+                search: content
             })
-        })
+            SendHttpRequest(this, GlobalDominName, GlobalPort, {
+                type: "MusicSearch",
+                match: content
+            }, ret => {
+                this.setData({
+                    ms: ret.result
+                })
+            })
+        } else {
+            SendHttpRequest(this, GlobalDominName, GlobalPort, {
+                type: "MusicRank",
+                count: 10
+            }, (ret) => {
+                console.log(ret)
+                this.setData({
+                    ms: ret.result
+                })
+            })
+        }
     },
 
     /**

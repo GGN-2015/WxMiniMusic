@@ -4,6 +4,7 @@
         "pages/genre/genre",
         "pages/my/my",
         "pages/search/search",
+        "pages/singers/singers",
         "pages/musicContent/musicContent"
     ],
     "window": {
