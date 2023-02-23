@@ -84,18 +84,27 @@
     <view class="a1">
         <text class="my_title" decode> 排行榜 &gt; </text>
     </view>
-    <view class="rank_border">
+    <view class="rank_board">
         <navigator class="nv" id="" wx:for="{{rank}}" wx:key="*this" 
             url="../../pages/musicContent/musicContent?name={{item.name}}">
-            <block wx:if="{{index<3}}">
-                <view class="vv bb">{{index+1}}.</view>
-                <view class="vv ">{{item.name}}</view>
-                <text class="tt">{{item.composer}}</text>
-            </block>
-            <block wx:else>
-                <view class="vv">{{index+1}}.{{item.name}}</view>
-                <text class="tt">{{item.composer}}</text>
-            </block>
+            <view class="rank_list_item">
+                <view class="rank_list_image_item_view">
+                    <image class="rank_list_image" src="{{item.image}}" mode="widthFix"/>
+                </view>
+                <view class="rank_list_text_view">
+                    <view>
+                        <text class="rank_list_name_text">{{item.name}}</text>
+                    </view>
+                    <view>
+                        <text  class="rank_list_composer_text">{{item.composer}}</text>
+                    </view>
+                </view>
+                <view class="rank_list_number_view">
+                    <text class="rank_number_prefix">No.</text>
+                    <text class="rank_number" 
+                        style="{{index <= 2 ? 'color: red;' : 'color: black;' }}">{{index+1}}</text>
+                </view>
+            </view>
         </navigator>
     </view>
 

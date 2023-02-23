@@ -33,7 +33,7 @@ def getMusicRank(cnt):
     
     tmp = []
     for x in mem: # 枚举所有音乐
-        tmp.append((SafeGet(x, 'name'), SafeGet(x, 'play'), SafeGet(x, 'composer')))
+        tmp.append((SafeGet(x, 'name'), SafeGet(x, 'play'), SafeGet(x, 'composer'), SafeGet(x, 'image')))
     tmp.sort(key=lambda x:-x[1])
 
     ans = []
@@ -41,7 +41,8 @@ def getMusicRank(cnt):
         ans.append({
             'name': x[0],
             'play': x[1],
-            'composer': x[2]
+            'composer': x[2],
+            'image': ImageWrap(x[3])
         })
 
     return {

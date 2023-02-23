@@ -40,11 +40,11 @@
   display: flex;
   padding-left:3vw ;
 }
-.rank_border{
-  margin: 2vw;
-  border-radius: 50rpx;
-  border: 0.5rpx solid rgb(209, 216, 230);
+.rank_board{
+    margin:10rpx;
+  border-radius: 15rpx;
   background-color: rgb(235, 235, 235);
+  box-shadow: 5rpx 5rpx grey;
  
 }
 .button_search{
@@ -125,7 +125,7 @@
   padding-top: 2vw;
 }
 .w{
-    background: linear-gradient(to top right, white, pink);
+    background: linear-gradient(to top right, rgb(252, 239, 239), pink);
 }
 
 .button_search_image {
@@ -175,4 +175,49 @@
     font-size: large;
     font-weight: bold;
     padding-left: 10rpx;
+}
+
+.rank_list_item {
+    display: flex;
+    background-color: white;
+    width: 100%;
+    margin: 10rpx;
+    border-radius: 15rpx;
+    padding: 10rpx;
+}
+
+.rank_list_image {
+    width: 150rpx;
+    border-radius: 10rpx;
+}
+
+.rank_list_image_item_view {
+    flex: 1
+}
+
+.rank_list_text_view {
+    flex: 2;
+    padding-left: 18rpx;
+}
+
+.rank_list_number_view {
+    flex: 1
+}
+
+.rank_list_name_text {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.rank_list_composer_text {
+    font-size: small;
+    color: grey;
+}
+
+.rank_number {
+    font-size: xx-large;
+}
+
+.rank_number_prefix {
+    font-size: larger;
 }

@@ -52,7 +52,7 @@
             "爱情"
         ],
         "source": "music/Test.mp3",
-        "play": 43,
+        "play": 54,
         "found": true
     },
     {
@@ -85,7 +85,7 @@
             "纯音乐"
         ],
         "source": "music/Test.mp3",
-        "play": 7
+        "play": 8
     },
     {
         "name": "勇气",
