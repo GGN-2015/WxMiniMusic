@@ -12,7 +12,7 @@
 </view>
 
 <view class="pic-view">
-    <image class="pic-image" src="../../icon/tapepng.png" mode="widthFix" />
+    <image class="pic-image" src="{{isPlay ? '../../icon/tapepng.png' : '../../icon/tapeup.png'}}" mode="widthFix" />
 </view>
 <image src="{{musicInfo.image}}" class="circleImage" style="animation: {{animation}};"></image>
 

@@ -30,7 +30,7 @@
             "纯音乐"
         ],
         "source": "music/jb.mp3",
-        "play": 27
+        "play": 29
     },
     {
         "name": "漠河舞厅",
@@ -41,7 +41,7 @@
             "流行"
         ],
         "source": "music/漠河舞厅.m4a",
-        "play": 32
+        "play": 36
     },
     {
         "name": "情人",
@@ -95,7 +95,7 @@
             "纯音乐"
         ],
         "source": "music/勇气.m4a",
-        "play": 13
+        "play": 15
     },
     {
         "name": "Last Dance",
@@ -105,7 +105,7 @@
             "动漫"
         ],
         "source": "music/LastDance.m4a",
-        "play": 10
+        "play": 11
     },
     {
         "name": "戒烟",

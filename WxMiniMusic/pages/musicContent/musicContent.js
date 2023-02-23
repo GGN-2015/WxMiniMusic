@@ -121,7 +121,6 @@ function Stopper(cnt = 9) {
     console.log("run stopper()")
     var bgmM = wx.getBackgroundAudioManager()
     if(!(bgmM.paused === true) || cnt > 0) {
-        bgmM.seek(0)
         bgmM.pause()
         setTimeout(function() {
             Stopper(cnt - 1)
@@ -322,7 +321,16 @@ Page({
 
                 // 开始播放音乐
                 const timeNow = (GlobalSliderPos / 100) * duration;
-                bgmM.seek(timeNow)
+                const realTimeNow = bgmM.currentTime;
+
+                if(Math.abs(timeNow - realTimeNow) >= 5) {
+                    console.log({
+                        timeNow, realTimeNow
+                    })
+                    bgmM.seek(timeNow)
+                }else {
+                    console.log("goes on")
+                }
                 bgmM.play()
                 PageItem.setData({
                     animation: "rotate 20s linear infinite"
