@@ -41,6 +41,9 @@ Page({
     }, (ret) => {
         console.log(ret)
         this.setData({test:ret.result})
+        this.setData({
+            categoryNow: id
+        })
     })
 
     },
@@ -48,6 +51,7 @@ Page({
       itemList: [],
       test:[],
       menuList:[],
+      categoryNow: ""
    
       },
    
@@ -70,6 +74,9 @@ Page({
         }, (ret) => {
             console.log(ret)
             this.setData({test:ret.result})
+        })
+        this.setData({
+            categoryNow: options.id
         })
      
     },

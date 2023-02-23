@@ -7,7 +7,7 @@
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 12
+        "play": 26
     },
     {
         "name": "白日",
@@ -18,7 +18,7 @@
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 9,
+        "play": 14,
         "found": true
     },
     {
@@ -30,7 +30,7 @@
             "纯音乐"
         ],
         "source": "music/Test.mp3",
-        "play": 10
+        "play": 14
     },
     {
         "name": "漠河舞厅",
@@ -41,7 +41,7 @@
             "流行"
         ],
         "source": "music/Test.mp3",
-        "play": 18
+        "play": 22
     },
     {
         "name": "情人",
@@ -52,7 +52,7 @@
             "爱情"
         ],
         "source": "music/Test.mp3",
-        "play": 54,
+        "play": 72,
         "found": true
     },
     {
@@ -64,7 +64,7 @@
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 17
+        "play": 22
     },
     {
         "name": "独到",
@@ -74,7 +74,7 @@
             "爱情"
         ],
         "source": "music/Test.mp3",
-        "play": 3,
+        "play": 8,
         "found": true
     },
     {
@@ -85,7 +85,7 @@
             "纯音乐"
         ],
         "source": "music/Test.mp3",
-        "play": 8
+        "play": 14
     },
     {
         "name": "勇气",
@@ -95,7 +95,7 @@
             "纯音乐"
         ],
         "source": "music/Test.mp3",
-        "play": 4
+        "play": 9
     },
     {
         "name": "Last Dance",
@@ -105,7 +105,7 @@
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 3
+        "play": 7
     },
     {
         "name": "戒烟",

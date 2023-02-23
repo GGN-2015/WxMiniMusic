@@ -51,7 +51,7 @@ page {
 }
 
 .feedback-view {
-    background-color: #EDAFB8;
+    background-color: #FFC1CC;
     margin: 30rpx;
     padding: 10rpx;
     border-radius: 15rpx;

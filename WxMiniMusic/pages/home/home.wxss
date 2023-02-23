@@ -172,7 +172,7 @@
 }
 
 .my_title {
-    font-size: large;
+    font-size: larger;
     font-weight: bold;
     padding-left: 10rpx;
 }

@@ -3,6 +3,13 @@ var GLobalIsPlay = false
 var GLobalStepperId = 0
 var GlobalSliderPos = 0
 var GlobalPriorityPos = 0;
+var GlobalTimePast = 0;
+
+function GetStaticRotation() {
+    const deg = GlobalTimePast / 20 * 360;
+    console.log({deg})
+    return "none; transform: rotate(" + deg + "deg)";
+}
 
 const GlobalDominName = getApp().globalData.globalDominName
 const GlobalPort = getApp().globalData.globalPort
@@ -41,12 +48,13 @@ function BeginStepper(PageItem, timeStep, stepperId) {
     if (GlobalSliderPos == 100) {
         SetGlobalIsPlay(PageItem, false)
         PageItem.setData({
-            animation: "none"
+            animation: GetStaticRotation()
         })
         return
     }
     if (GLobalIsPlay === true && GLobalStepperId === stepperId) {
         setTimeout(function () {
+            GlobalTimePast += timeStep;
             if (GLobalStepperId === stepperId) {
                 var sliderPos;
 
@@ -87,6 +95,17 @@ function SetMusicAndStop(PageObj, music_url) {
     SetGlobalIsPlay(PageObj, false)
 }
 
+function Stopper() {
+    console.log("run stopper()")
+    var bgmM = wx.getBackgroundAudioManager()
+    if(!(bgmM.paused === true)) {
+        bgmM.pause()
+        setTimeout(function() {
+            Stopper()
+        }, TIME_BREAK)
+    }
+}
+
 Page({
 
     /**
@@ -94,7 +113,7 @@ Page({
      */
     data: {
         sliderPos: 0,
-        animation: "none",
+        animation: 0,
         name: "", // 音乐名称跳转携带过来的参数
         musicInfo: {},
         isLogin: false,
@@ -140,6 +159,11 @@ Page({
                     title: '音乐加载失败',
                     icon: 'error'
                 })
+                setTimeout(function() {
+                    wx.redirectTo({
+                      url: '../../pages/home/home',
+                    })
+                }, 1500)
             }
         })
     },
@@ -159,7 +183,7 @@ Page({
             if(!bgmM.paused) bgmM.pause()
 
             PageItem.setData({
-                animation: 'none'
+                animation: GetStaticRotation()
             })
             setTimeout(function () {
                 SetGlobalIsPlay(PageItem, false)
@@ -175,11 +199,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-        var bgmM = wx.getBackgroundAudioManager();
-        setTimeout(function () {
-            bgmM.seek(0)
-            if(!bgmM.paused) bgmM.pause()
-        }, TIME_BREAK * 4)
+        Stopper()
     },
 
     /**
@@ -196,6 +216,7 @@ Page({
             if(!bgmM.paused) bgmM.pause()
         }
         GlobalPriorityPos = 0
+        GLobalStepperId = RandInt(0, 1000000000)
     },
 
     /**
@@ -207,6 +228,7 @@ Page({
             if(!bgmM.paused) bgmM.pause()
         }
         GlobalPriorityPos = 0
+        GLobalStepperId = RandInt(0, 1000000000)
     },
 
     /**
@@ -240,8 +262,9 @@ Page({
             var bgmM = wx.getBackgroundAudioManager()
             if(!bgmM.paused) bgmM.pause()
             this.setData({
-                animation: 'none'
+                animation: GetStaticRotation()
             })
+            GlobalTimePast = 0; // 假设新的旋转从初始位置开始
         } else { // 启动
             SetGlobalIsPlay(this, true)
             console.log({

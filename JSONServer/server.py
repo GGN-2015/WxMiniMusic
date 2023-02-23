@@ -10,7 +10,7 @@ def saveDB(mem: dict, filename: str):
 
 host_ip = '0.0.0.0'
 host = (host_ip, 1200)
-IMG_IP = "192.168.43.123" # TODO: 这里最终要改成 127.0.0.1
+IMG_IP = "127.0.0.1" # TODO: 这里最终要改成 127.0.0.1
 IMG_PORT = 8000 # 对象服务器接口
 
 def SafeGet(x, key):
@@ -28,7 +28,6 @@ def IntWrap(cnt):
 
 def getMusicRank(cnt):
     cnt = IntWrap(cnt)
-
     mem = loadDB('music.json')
     
     tmp = []
@@ -136,6 +135,8 @@ def getMusicInCategory(name, cnt):
 
 def MusicMatch(musicObj, match) -> bool:
     ans = False
+    if match is None:
+        return False
 
     if SafeGet(musicObj, 'name').find(match) != -1:
         ans = True
@@ -146,9 +147,18 @@ def MusicMatch(musicObj, match) -> bool:
 
     return ans
 
+def isComposer(match):
+    mem = loadDB('composer.json')
+    if mem.get(match) is not None:
+        return True
+    return False
+
+def getComposerMessage(match):
+    mem = loadDB('composer.json')
+    return mem[match]
+
 def getMusicSearch(match, cnt):
     # cnt = IntWrap(cnt)
-
     mem = loadDB("music.json")
     ans = []
     for x in mem:
@@ -158,10 +168,14 @@ def getMusicSearch(match, cnt):
                 'composer': SafeGet(x, 'composer'),
                 'image': ImageWrap(SafeGet(x, 'image'))
             })
-    
-    return {
-        'result': ans
+    data = {
+        'result': ans,
+        'attach': None
     }
+    if isComposer(match):
+        data['attach'] = getComposerMessage(match)
+        data['attach']['image'] = ImageWrap(data['attach']['image'])
+    return data
 
 def getCollection(nickname, cnt):
     cnt = IntWrap(cnt)
@@ -337,8 +351,9 @@ def getDataByInput(inputData): # 根据输入获取数据
 
     elif inputData.get("type") == "FeedBack":
         data = saveFeedBack(inputData.get("nickName"), inputData.get("content"))
-
+    
     print("return data", data)
+    data['echo'] = inputData
     return data
  
 class Resquest(BaseHTTPRequestHandler):

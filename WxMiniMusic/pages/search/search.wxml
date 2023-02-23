@@ -1,36 +1,51 @@
 <!--pages/my/my.wxml-->
 
-  <view class="containe">
+<view>
     <view class="position_search">
-      <view class="search"
-        wx:if="{{!focus}}" >
-        <image class="im" src="../../icon/search.png" mode="scaleToFill"/>
-        <input  bindinput="handleinput" bindfocus="handlefocus" type="text" placeholder="搜索"/>
-      </view>         
-  
-
-      <view
-       wx:elif="{{focus}}"
-       class="search"
-       >
-  
-         <input id="input" bindinput="handleinput"auto-focus="true" type="text" placeholder="搜索" value="{{search}}"/>
-          <image class="im vi" 
-             bindtap="handletap"
-              src="../../icon/del.png" mode="scaleToFill"/>
-      </view>
+        <view class="search" wx:if="{{!focus}}">
+            <image class="im" src="../../icon/search.png" mode="scaleToFill" />
+            <input class="input_box" bindinput="handleinput" 
+                bindfocus="handlefocus" type="text" placeholder="搜索" />
+        </view>
+        <view wx:elif="{{focus}}" class="search">
+            <input class="input_box" 
+                id="input" bindinput="handleinput" type="text" placeholder="搜索" auto-focus="true" />
+            <image class="im vi" bindtap="handletap" src="../../icon/del.png" mode="scaleToFill" />
+        </view>
     </view>
-  </view>
+</view>
+
+<view wx:if="{{composer_name != ''}}" class="composer_view">
+    <view class="text_view">
+        <view>
+            <text class="text_view_text">{{composer_name}}</text>
+        </view>
+        <view>
+            <text class="text_view_subtext">歌手</text>
+        </view>
+    </view>
+    <view class="image_view">
+        <image class="composer_image" src="{{composer_image}}" mode="widthFix"/>
+    </view>
+</view>
+
 <scroll-view scroll-y="true">
-  <view wx:for="{{ms}}" wx:key="*this"
-    class="s_v"
-  >
-    
-      <navigator url="../../pages/musicContent/musicContent?name={{item.name}}" class="nage">
-        <view  class="vv1">{{item.name}}</view>
-         <text class="tt1">{{item.composer}}</text>
-      </navigator>
-    </view>
-  
+    <navigator wx:for="{{ms}}" wx:key="*this"
+        url="../../pages/musicContent/musicContent?name={{item.name}}">
+        <view class="s_v">
+            <view class="nage">
+                <view class="search_answer_left_view">
+                    <image class="thumb_image" src="{{item.image}}" mode="widthFix" />
+                </view>
+                <view class="search_answer_right_view">
+                    <view class="vv1">
+                        <text>{{item.name}}</text>
+                    </view>
+                    <view>
+                        <text class="tt1">{{item.composer}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </navigator>
 </scroll-view>
-

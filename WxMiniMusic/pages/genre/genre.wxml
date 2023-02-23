@@ -4,7 +4,7 @@
   <!-- 左侧滚动区域 -->
   <scroll-view style="height: calc(100vh);width:25vw;" scroll-y>
     <view class="left">
-      <view class="son" wx:for="{{itemList}}" wx:key="id" bindtap="selected" 
+      <view class="{{item.name == categoryNow ? 'son son-dark' : 'son'}}" wx:for="{{itemList}}" wx:key="id" bindtap="selected" 
       data-id="{{item.name}}">
       {{item.name}}</view>
     </view>

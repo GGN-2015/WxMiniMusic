@@ -1,60 +1,119 @@
 /* pages/my/my.wxss */
-.contraine{
-  background-color: aqua;
-  display: flex;
-  
+.contraine {
+    background-color: aqua;
+    display: flex;
+
 }
 
-.in{
-  border-radius: 50rpx;
-  background-color: #fff;
+.in {
+    border-radius: 50rpx;
+    background-color: #fff;
 }
-.position_search{
- 
-  padding-top: 3vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#input{
-  padding-left: 2vw;
-}
-input{
-  width:93vw;
-}
-.search{
-  justify-content: space-between;
-  display: flex;
-  background-color: rgb(238, 238, 238);
-  border-radius: 60rpx;
-  width: 99vw;
-  padding-right: 1vw;
-  padding-left: 1vw;
-}
-.im{
-  width: 25px;
-  height:25px;
-}
-  .s_v{
-    padding-left: 2vw;
+
+.position_search {
     padding-top: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#input {
+    padding-left: 2vw;
+}
+
+input {
+    width: 93vw;
+}
+
+.search {
+    justify-content: space-between;
+    display: flex;
+    background: white;
+    border-radius: 30rpx;
+    width: 90vw;
+    margin-bottom: 30rpx;
+    padding-left: 15rpx;
+}
+
+.im {
+    width: 25px;
+    height: 25px;
+}
+
+.s_v {
     display: flex;
     justify-content: left;
     align-items: center;
-    padding-bottom: 1vw;
-    border-bottom: 3rpx solid rgb(116, 116, 116);
-  }
-  .nage{
+
+    margin: 10rpx;
+    padding: 10rpx;
+    border-radius: 14rpx;
+    background: linear-gradient(to right, white, grey);
+}
+
+.vv1 {
+    margin-top: 10rpx;
+    font-size: large;
     display: flex;
-  }
-  .vv1{
-    font-size: 4vw;
-     display: flex;
-     
-   }
-   .tt1{
-     font-size: 3vw;
+}
+
+.tt1 {
+    font-size: small;
+    color: grey;
+}
+
+page {
+    background: linear-gradient(to left, white, grey);
+}
+
+.thumb_image {
+    width: 110rpx;
+    border-radius: 20rpx;
+}
+
+.nage {
     display: flex;
-     align-items: flex-end;
-     padding-left: 1vw;
-   }
+    border-radius: 20rpx;
+}
+
+.search_answer_left_view {
+    flex: 1;
+}
+
+.search_answer_right_view {
+    flex: 4;
+    padding-left: 20rpx;
+}
+
+.composer_image {
+    width: 150rpx;
+    border-radius: 20rpx;
+}
+
+.image_view {
+    flex: 1;
+}
+
+.text_view {
+    flex: 6;
+    padding-top: 30rpx;
+    padding-left: 20rpx;
+}
+
+.composer_view {
+    display: flex;
+    background: linear-gradient(to left,pink, white);
+    border-radius: 20rpx;
+    margin: 10rpx;
+    padding: 10rpx;
+}
+
+.text_view_text {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.text_view_subtext {
+    font-size: small;
+    color: grey;
+}

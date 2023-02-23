@@ -68,7 +68,17 @@ Page({
             type: "MusicSearch",
             match: this.data.search
         }, (ret) => {
-            console.log(ret)
+            if(ret.attach) {
+                this.setData({
+                    composer_name: this.data.search,
+                    composer_image: ret.attach.image
+                })
+            }else {
+                this.setData({
+                    composer_name: "",
+                    composer_image: ""
+                })
+            }
             this.setData({
                 ms: ret.result
             })
@@ -84,7 +94,7 @@ Page({
         }catch(err) {
             content = ""; // option.id undefined
         }
-        if (content != "") {
+        if (content != "" && content != undefined) {
             this.setData({
                 search: content
             })
@@ -92,6 +102,17 @@ Page({
                 type: "MusicSearch",
                 match: content
             }, ret => {
+                if(ret.attach) {
+                    this.setData({
+                        composer_name: this.data.search,
+                        composer_image: ret.attach.image
+                    })
+                }else {
+                    this.setData({
+                        composer_name: "",
+                        composer_image: ""
+                    })
+                }
                 this.setData({
                     ms: ret.result
                 })
