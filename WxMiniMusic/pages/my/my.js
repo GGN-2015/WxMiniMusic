@@ -188,7 +188,8 @@ Page({
 
     ShowFeedBack(e) {
         this.setData({
-            showFeedBack: true
+            showFeedBack: true,
+            feedBackData: ""
         })
     },
 

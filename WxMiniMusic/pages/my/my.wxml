@@ -69,6 +69,7 @@
     <modal hidden="{{!showFeedBack}}" title="请输入反馈内容" 
    			confirm-text="提交" cancel-text="取消" bindcancel="FeedBackCancel" 
    			bindconfirm="FeedBackConfirm">
-     <textarea placeholder="请输入内容" bindinput="InputFeedBack"></textarea>
+     <textarea placeholder="请输入内容" bindinput="InputFeedBack" id="textarea-feedback" 
+        value="{{feedBackData}}" focus></textarea>
    </modal>
 </block>
