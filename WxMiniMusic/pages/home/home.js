@@ -122,7 +122,15 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        SendHttpRequest(this, GlobalDominName, GlobalPort, {
+            type: "MusicRank",
+            count: 10
+        }, (ret) => {
+            console.log(ret)
+            this.setData({
+                rank: ret.result
+            })
+        })
     },
 
     /**

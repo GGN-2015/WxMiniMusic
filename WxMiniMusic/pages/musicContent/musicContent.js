@@ -4,6 +4,7 @@ var GLobalStepperId = 0
 var GlobalSliderPos = 0
 var GlobalPriorityPos = 0;
 var GlobalTimePast = 0;
+var GlobalDone = false; // 是否完成了初始化
 
 function GetStaticRotation() {
     const deg = GlobalTimePast / 20 * 360;
@@ -48,8 +49,18 @@ function BeginStepper(PageItem, timeStep, stepperId) {
     if (GlobalSliderPos == 100) {
         SetGlobalIsPlay(PageItem, false)
         PageItem.setData({
+            isPlay: false,
             animation: GetStaticRotation()
         })
+        GLobalIsPlay = false
+        GlobalDone = false
+        var bgmM = wx.getBackgroundAudioManager()
+        GlobalSliderPos = 0
+        PageItem.setData({
+            sliderPos: 0
+        })
+        bgmM.src = PageItem.data.musicInfo.source
+        Stopper()
         return
     }
     if (GLobalIsPlay === true && GLobalStepperId === stepperId) {
@@ -92,17 +103,27 @@ function SetMusicAndStop(PageObj, music_url) {
     var bgmM = wx.getBackgroundAudioManager()
     bgmM.src = music_url;
     bgmM.title = "tmp"
-    bgmM.seek(0)
     SetGlobalIsPlay(PageObj, false)
 }
 
-function Stopper(cnt = 10) {
+function Stopper(cnt = 9) {
+    if(cnt > 9) {
+        wx.showLoading({
+          title: '玩命加载中',
+        })
+    }
     console.log("run stopper()")
     var bgmM = wx.getBackgroundAudioManager()
     if(!(bgmM.paused === true) || cnt > 0) {
+        bgmM.seek(0)
         bgmM.pause()
         setTimeout(function() {
             Stopper(cnt - 1)
+        }, TIME_BREAK)
+    }else {
+        setTimeout(function() {
+            GlobalDone = true; // 初始化完成
+            wx.hideLoading()
         }, TIME_BREAK)
     }
 }
@@ -128,6 +149,13 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        GLobalIsPlay = false;
+        GLobalStepperId = 0;
+        GlobalSliderPos = 0;
+        GlobalPriorityPos = 0;
+        GlobalTimePast = 0;
+        GlobalDone = false;
+        
         try {
             this.data.name = options.name;
         }catch(err) {
@@ -200,7 +228,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-        Stopper()
+        Stopper(10)
     },
 
     /**
@@ -225,6 +253,9 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload() {
+        wx.showLoading({
+          title: '玩命恢复中',
+        })
         if (GLobalIsPlay == true) {
             var bgmM = wx.getBackgroundAudioManager()
             if(!bgmM.paused) bgmM.pause()
@@ -256,6 +287,8 @@ Page({
     },
 
     PauseOrPlay(e) {
+        if(GlobalDone == false) return // 初始化未完成
+
         if (GLobalIsPlay === true) { // 暂停
             SetGlobalIsPlay(this, false)
             console.log({

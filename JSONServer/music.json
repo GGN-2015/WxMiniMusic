@@ -7,7 +7,7 @@
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 32
+        "play": 37
     },
     {
         "name": "白日",
@@ -17,8 +17,8 @@
             "爱情",
             "动漫"
         ],
-        "source": "music/Test.mp3",
-        "play": 15,
+        "source": "music/白日.mp3",
+        "play": 16,
         "found": true
     },
     {
@@ -29,8 +29,8 @@
             "动漫",
             "纯音乐"
         ],
-        "source": "music/Test.mp3",
-        "play": 14
+        "source": "music/jb.mp3",
+        "play": 25
     },
     {
         "name": "漠河舞厅",
@@ -40,8 +40,8 @@
             "纯音乐",
             "流行"
         ],
-        "source": "music/Test.mp3",
-        "play": 26
+        "source": "music/漠河舞厅.m4a",
+        "play": 32
     },
     {
         "name": "情人",
@@ -51,8 +51,8 @@
             "流行",
             "爱情"
         ],
-        "source": "music/Test.mp3",
-        "play": 73,
+        "source": "music/情人.m4a",
+        "play": 83,
         "found": true
     },
     {
@@ -63,8 +63,8 @@
             "流行",
             "动漫"
         ],
-        "source": "music/Test.mp3",
-        "play": 22
+        "source": "music/千禧.m4a",
+        "play": 28
     },
     {
         "name": "独到",
@@ -73,8 +73,8 @@
         "category": [
             "爱情"
         ],
-        "source": "music/Test.mp3",
-        "play": 9,
+        "source": "music/dd.m4a",
+        "play": 14,
         "found": true
     },
     {
@@ -84,8 +84,8 @@
         "category": [
             "纯音乐"
         ],
-        "source": "music/Test.mp3",
-        "play": 14
+        "source": "music/zz.m4a",
+        "play": 15
     },
     {
         "name": "勇气",
@@ -94,8 +94,8 @@
         "category": [
             "纯音乐"
         ],
-        "source": "music/Test.mp3",
-        "play": 10
+        "source": "music/勇气.m4a",
+        "play": 13
     },
     {
         "name": "Last Dance",
@@ -104,8 +104,8 @@
         "category": [
             "动漫"
         ],
-        "source": "music/Test.mp3",
-        "play": 7
+        "source": "music/LastDance.m4a",
+        "play": 10
     },
     {
         "name": "戒烟",
@@ -115,7 +115,7 @@
             "动漫",
             "爱情"
         ],
-        "source": "music/Test.mp3",
-        "play": 2
+        "source": "music/jy.m4a",
+        "play": 4
     }
 ]

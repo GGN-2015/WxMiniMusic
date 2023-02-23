@@ -19,7 +19,7 @@
 
       <!-- 小板块 -->
     <view class="Mixitem">
-      <view class="item" wx:for="{{test}}" >
+      <view class="item" wx:for="{{test}}" wx:key="name">
             <navigator url="../../pages/musicContent/musicContent?name={{item.name}}">
               <view class="MixPic">
                 <image src="{{item.image}}"></image>

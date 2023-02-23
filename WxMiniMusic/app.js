@@ -15,7 +15,7 @@ App({
     },
     globalData: {
         userInfo: null,
-        globalDominName: "192.168.43.123",
+        globalDominName: "127.0.0.1",
         globalPort: 1200,
     },
     isLogin() {
