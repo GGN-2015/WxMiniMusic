@@ -31,8 +31,8 @@ Page({
      */
     data: {
         isLogin: false,
-        avatarUrl: "",
-        nickName: "",
+        avatarUrl: "../../icon/visitor.jfif",
+        nickName: "访客用户",
         collection: [],
         motto: ""
     },
@@ -138,6 +138,9 @@ Page({
                     }, (ret) => {
                         this.setData({
                             collection: ret.result
+                        })
+                        wx.showToast({
+                          title: '取消成功',
                         })
                     })
                 }

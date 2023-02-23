@@ -2,16 +2,16 @@
     {
         "name": "中文女",
         "image": "pic/zwn.jpg",
-        "composer": ["梁静茹"]
+        "composer": ["梁静茹", "高睿"]
     },
     {
         "name": "中文男",
         "image": "pic/zwnan.jpg",
-        "composer": ["蔡徐坤"]
+        "composer": ["蔡徐坤", "santiano", "柳爽", "徐秉龙"]
     },
     {
         "name": "流行",
         "image": "pic/glx.jpg",
-        "composer": ["五月天", "徐秉龙"]
+        "composer": ["五月天", "徐秉龙", "king ghu", "伍佰"]
     }
 ]

@@ -258,13 +258,26 @@ def getRandomMotto():
         "result": mem[idx]
     }
 
+def getComposerImageByName(name):
+    mem = loadDB('composer.json')
+    if mem.get(name) is None:
+        return 'pic/error.png'
+    else:
+        return mem[name]['image']
+
 def getComposerTypeDetail(name):
     mem = loadDB("composerType.json")
     for x in mem:
         if x.get('name') == name:
-            return {
-                "result": x.get("composer")
+            data = {
+                'result': []
             }
+            for composer in x.get('composer'):
+                data['result'].append({
+                    'image': ImageWrap(getComposerImageByName(composer)),
+                    'name': composer
+                })
+            return data
     return {
         "result": []
     }
@@ -304,13 +317,12 @@ def getDataByInput(inputData): # 根据输入获取数据
         setFollow(inputData.get("nickName"), inputData.get("name"))
         data = getCollection(inputData.get("nickName"), inputData.get("count"))
     
-    elif inputData.get("type") == "GetRandomMotto":
+    elif inputData.get("type") == "GetRandomMotto": # 获取随机名言
         data = getRandomMotto()
 
     elif inputData.get("type") == "ComposerTypeDetail":
         data = getComposerTypeDetail(inputData.get("name"))
         pass
-
 
     print("return data", data)
     return data

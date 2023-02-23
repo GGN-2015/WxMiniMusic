@@ -2,12 +2,12 @@
     {
         "name": "测试音乐",
         "composer": "水濑祈",
-        "image": "pic/error.png",
+        "image": "pic/MoreOneNight.jpg",
         "category": [
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 10
+        "play": 12
     },
     {
         "name": "白日",
@@ -85,7 +85,7 @@
             "纯音乐"
         ],
         "source": "music/Test.mp3",
-        "play": 6
+        "play": 7
     },
     {
         "name": "勇气",
@@ -105,7 +105,7 @@
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 2
+        "play": 3
     },
     {
         "name": "戒烟",

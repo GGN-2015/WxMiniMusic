@@ -74,7 +74,7 @@ page {
     font-weight: bolder;
 }
 
-.text-followed {
+.text-followed-star {
     color: orange;
     font-size: xx-large;
 }
@@ -102,4 +102,29 @@ page {
     font-size: smaller;
     color: grey;
     margin-left: 20rpx;
+}
+
+.unfollowed-star-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 10rpx;
+}
+
+.text-followed-text {
+    color: grey;
+    font-size: small;
+}
+
+.follow-empty {
+    background-color: white;
+    margin: 20rpx;
+    border-radius: 10rpx;
+}
+
+.follow-empty-line-view {
+    color: grey;
+    font-size: small;
+    padding: 10rpx;
+    padding-left: 20rpx;
 }

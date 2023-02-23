@@ -304,6 +304,9 @@ Page({
             this.setData({
                 followed
             })
+            wx.showToast({
+              title: '收藏成功',
+            })
         })
     },
 
@@ -326,15 +329,17 @@ Page({
     },
 
     UnFollow(e) {
-        this.setData({
-            followed: false,
-        })
         SendHttpRequest(this, GlobalDominName, GlobalPort, {
             type: 'UnFollow',
             nickName: this.data.nickName,
             name: this.data.name
         }, ret => {
-
+            this.setData({
+                followed: false,
+            })
+            wx.showToast({
+              title: '取消成功',
+            })
         })
     }
 })
