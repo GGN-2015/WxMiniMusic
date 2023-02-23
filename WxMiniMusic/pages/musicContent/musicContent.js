@@ -8,7 +8,9 @@ var GlobalDone = false; // 是否完成了初始化
 
 function GetStaticRotation() {
     const deg = GlobalTimePast / 20 * 360;
-    console.log({deg})
+    console.log({
+        deg
+    })
     return "none; transform: rotate(" + deg + "deg)";
 }
 
@@ -62,9 +64,9 @@ function BeginStepper(PageItem, timeStep, stepperId) {
         bgmM.title = "tmp"
         bgmM.src = PageItem.data.musicInfo.source
         wx.showLoading({
-          title: '玩命加载中',
+            title: '玩命加载中',
         })
-        setTimeout(function() {
+        setTimeout(function () {
             Stopper()
         }, TIME_BREAK * 2)
         return
@@ -113,20 +115,20 @@ function SetMusicAndStop(PageObj, music_url) {
 }
 
 function Stopper(cnt = 9) {
-    if(cnt > 9) {
+    if (cnt > 9) {
         wx.showLoading({
-          title: '玩命加载中',
+            title: '玩命加载中',
         })
     }
     console.log("run stopper()")
     var bgmM = wx.getBackgroundAudioManager()
-    if(!(bgmM.paused === true) || cnt > 0) {
+    if (!(bgmM.paused === true) || cnt > 0) {
         bgmM.pause()
-        setTimeout(function() {
+        setTimeout(function () {
             Stopper(cnt - 1)
         }, TIME_BREAK)
-    }else {
-        setTimeout(function() {
+    } else {
+        setTimeout(function () {
             GlobalDone = true; // 初始化完成
             wx.hideLoading()
         }, TIME_BREAK)
@@ -160,13 +162,13 @@ Page({
         GlobalPriorityPos = 0;
         GlobalTimePast = 0;
         GlobalDone = false;
-        
+
         try {
             this.data.name = options.name;
-        }catch(err) {
+        } catch (err) {
             this.data.name = "测试歌曲";
         }
-        if(getApp().isLogin()) {
+        if (getApp().isLogin()) {
             this.setData({
                 isLogin: true,
                 nickName: getApp().globalData.userInfo.nickName,
@@ -193,9 +195,9 @@ Page({
                     title: '音乐加载失败',
                     icon: 'error'
                 })
-                setTimeout(function() {
+                setTimeout(function () {
                     wx.redirectTo({
-                      url: '../../pages/home/home',
+                        url: '../../pages/home/home',
                     })
                 }, TIME_BREAK * 10)
             }
@@ -214,7 +216,9 @@ Page({
         setTimeout(function () { // 此处需要异步调用相关接口
             const posNow = rate * bgmM.duration;
             bgmM.seek(posNow);
-            if(!bgmM.paused) bgmM.pause()
+            console.log({posNow})
+
+            if (!bgmM.paused) bgmM.pause()
 
             PageItem.setData({
                 animation: GetStaticRotation()
@@ -223,7 +227,6 @@ Page({
                 SetGlobalIsPlay(PageItem, false)
                 GlobalSliderPos = e.detail.value;
                 GlobalPriorityPos = e.detail.value;
-
                 console.log(posNow);
             }, TIME_BREAK);
         }, TIME_BREAK)
@@ -247,7 +250,7 @@ Page({
     onHide() {
         if (GLobalIsPlay == true) {
             var bgmM = wx.getBackgroundAudioManager()
-            if(!bgmM.paused) bgmM.pause()
+            if (!bgmM.paused) bgmM.pause()
         }
         GlobalPriorityPos = 0
         GLobalStepperId = RandInt(0, 1000000000)
@@ -259,11 +262,11 @@ Page({
      */
     onUnload() {
         wx.showLoading({
-          title: '玩命恢复中',
+            title: '玩命恢复中',
         })
         if (GLobalIsPlay == true) {
             var bgmM = wx.getBackgroundAudioManager()
-            if(!bgmM.paused) bgmM.pause()
+            if (!bgmM.paused) bgmM.pause()
         }
         GlobalPriorityPos = 0
         GLobalStepperId = RandInt(0, 1000000000)
@@ -292,7 +295,7 @@ Page({
     },
 
     PauseOrPlay(e) {
-        if(GlobalDone == false) return // 初始化未完成
+        if (GlobalDone == false) return // 初始化未完成
 
         if (GLobalIsPlay === true) { // 暂停
             SetGlobalIsPlay(this, false)
@@ -301,7 +304,7 @@ Page({
             })
 
             var bgmM = wx.getBackgroundAudioManager()
-            if(!bgmM.paused) bgmM.pause()
+            if (!bgmM.paused) bgmM.pause()
             this.setData({
                 animation: GetStaticRotation()
             })
@@ -314,34 +317,41 @@ Page({
 
             var bgmM = wx.getBackgroundAudioManager()
             var PageItem = this;
-            setTimeout(function () {
-                const duration = bgmM.duration;
-                const timeStep = duration / 300; // 百分之一所需要的时间
-                GLobalStepperId = RandInt(0, 10000000000);
+            GlobalDone = false
+            wx.showLoading({
+                title: '玩命跳转中',
+            })
+            const duration = bgmM.duration;
+            const timeStep = duration / 300; // 百分之一所需要的时间
+            GLobalStepperId = RandInt(0, 10000000000);
 
-                // 开始播放音乐
-                const timeNow = (GlobalSliderPos / 100) * duration;
-                const realTimeNow = bgmM.currentTime;
+            // 开始播放音乐
+            const timeNow = (GlobalSliderPos / 100) * duration;
+            const realTimeNow = bgmM.currentTime;
 
-                if(Math.abs(timeNow - realTimeNow) >= 5) {
-                    console.log({
-                        timeNow, realTimeNow
-                    })
-                    bgmM.seek(timeNow)
-                }else {
-                    console.log("goes on")
-                }
+            if (Math.abs(timeNow - realTimeNow) >= 5) {
+                console.log({
+                    timeNow,
+                    realTimeNow
+                })
+                bgmM.seek(timeNow)
+                console({timeNow})
+            } else {
+                console.log("goes on")
+            }
+            setTimeout(() => {
                 bgmM.play()
                 PageItem.setData({
                     animation: "rotate 20s linear infinite"
                 })
-
                 console.log({
                     GLobalStepperId,
                     timeStep
                 })
+                GlobalDone = true
+                wx.hideLoading()
                 BeginStepper(PageItem, timeStep, GLobalStepperId);
-            }, TIME_BREAK)
+            }, TIME_BREAK * 10);
         }
     },
 
@@ -378,7 +388,7 @@ Page({
                 followed
             })
             wx.showToast({
-              title: '收藏成功',
+                title: '收藏成功',
             })
         })
     },
@@ -411,7 +421,7 @@ Page({
                 followed: false,
             })
             wx.showToast({
-              title: '取消成功',
+                title: '取消成功',
             })
         })
     }
