@@ -59,8 +59,14 @@ function BeginStepper(PageItem, timeStep, stepperId) {
         PageItem.setData({
             sliderPos: 0
         })
+        bgmM.title = "tmp"
         bgmM.src = PageItem.data.musicInfo.source
-        Stopper()
+        wx.showLoading({
+          title: '玩命加载中',
+        })
+        setTimeout(function() {
+            Stopper()
+        }, TIME_BREAK * 2)
         return
     }
     if (GLobalIsPlay === true && GLobalStepperId === stepperId) {

@@ -18,7 +18,7 @@
             "动漫"
         ],
         "source": "music/白日.mp3",
-        "play": 16,
+        "play": 17,
         "found": true
     },
     {
@@ -30,7 +30,7 @@
             "纯音乐"
         ],
         "source": "music/jb.mp3",
-        "play": 25
+        "play": 27
     },
     {
         "name": "漠河舞厅",
