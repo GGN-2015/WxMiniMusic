@@ -1,28 +1,40 @@
 <!--pages/home/home.wxml-->
 
 <view class="w">
-    <navigator id="1" url="../search/search?id=nnn" class="nn">
-        <button class="button_search">
-            搜索
+    <view class="search_b">
+        <navigator id="1" url="../search/search" class="nn">
+            <button class="button_search">
+                搜索
+            </button>
+        </navigator>
+        <button class="bi" open-type="share" style="width:10vw">
+            <image class="share_png" src="../../icon/share.png" mode="aspectFill" />
         </button>
-    </navigator>
+    </view>
 
     <view class="a1">
-        歌曲分类>
+        歌曲分类
     </view>
     <view class="page-section-spacing">
-        <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll">
+        <scroll-view class="scroll-view_H" scroll-x="true">
             <view wx:for="{{mc}}" wx:key="*this" id="demo1" class="scroll-view-item_H ">
-                <navigator url="../genre/genre?id={{item.name}}" open-type="navigate">
-                    <image class="image_f cen" src="{{item.image}}" mode="scaleToFill" />
-                    <view class="cen">
-                        {{item.name}}
-                    </view>
-                </navigator>
-
+                <block wx:if="{{index<1}}">
+                    <navigator class="b1" url="../../pages/genre/genre?id={{item.name}}" open-type="navigate">
+                        <image class="image_f cen" src="{{item.image}}" mode="scaleToFill" />
+                        <text class="cen">
+                            {{item.name}}
+                        </text>
+                    </navigator>
+                </block>
+                <block wx:else>
+                    <navigator url="../../pages/genre/genre?id={{item.name}}" open-type="navigate">
+                        <image class="image_f cen" src="{{item.image}}" mode="scaleToFill" />
+                        <text class="cen">
+                            {{item.name}}
+                        </text>
+                    </navigator>
+                </block>
             </view>
-
-
         </scroll-view>
     </view>
     <view class="a2">
@@ -32,15 +44,24 @@
         歌手分类>
     </view>
     <view class="page-section-spacing">
-        <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll">
+        <scroll-view class="scroll-view_H" scroll-x="true">
             <view wx:for="{{pc}}" wx:key="*this" id="demo1" class="scroll-view-item_H ">
-                <navigator url="../my/my?id={{item.name}}">
-                    <image class="image_f cen" src="{{item.image}}" mode="scaleToFill" />
-                    <view class="cen">
-                        {{item.name}}
-                    </view>
-                </navigator>
-
+                <block wx:if="{{index<1}}">
+                    <navigator class="b1" url="../my/my?id={{item.name}}" open-type="redirect">
+                        <image class="image_f cen" src="{{item.image}}" mode="scaleToFill" />
+                        <text class="cen">
+                            {{item.name}}
+                        </text>
+                    </navigator>
+                </block>
+                <block wx:else="">
+                    <navigator url="../my/my?id={{item.name}}" open-type="redirect">
+                        <image class="image_f cen" src="{{item.image}}" mode="scaleToFill" />
+                        <text class="cen">
+                            {{item.name}}
+                        </text>
+                    </navigator>
+                </block>
             </view>
 
 
@@ -49,12 +70,26 @@
     <view class="a2">
 
     </view>
+
+
     <view class="a1">
         排行榜
     </view>
-    <view>
-        <navigator class="nv" id="" wx:for="{{rank}}" wx:key="name" url="/pages/musicContent/musicContent?name={{item.name}}">
-            <view class="vv">{{index+1}}.{{item.name}}</view> {{item.composer}}
+    <view class="rank_border">
+        <navigator class="nv" id="" wx:for="{{rank}}" wx:key="*this" 
+            url="../../pages/musicContent/musicContent?name={{item.name}}">
+            <block wx:if="{{index<3}}">
+                <view class="vv bb">{{index+1}}.</view>
+                <view class="vv ">{{item.name}}</view>
+                <text class="tt">{{item.composer}}</text>
+            </block>
+            <block wx:else>
+                <view class="vv">{{index+1}}.{{item.name}}</view>
+                <text class="tt">{{item.composer}}</text>
+            </block>
         </navigator>
     </view>
+
+
+
 </view>

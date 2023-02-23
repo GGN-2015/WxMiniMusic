@@ -30,7 +30,7 @@
             "纯音乐"
         ],
         "source": "music/Test.mp3",
-        "play": 6
+        "play": 9
     },
     {
         "name": "漠河舞厅",
@@ -41,7 +41,7 @@
             "流行"
         ],
         "source": "music/Test.mp3",
-        "play": 13
+        "play": 14
     },
     {
         "name": "情人",
@@ -64,7 +64,7 @@
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 15
+        "play": 16
     },
     {
         "name": "独到",
@@ -74,7 +74,7 @@
             "爱情"
         ],
         "source": "music/Test.mp3",
-        "play": 2,
+        "play": 3,
         "found": true
     },
     {

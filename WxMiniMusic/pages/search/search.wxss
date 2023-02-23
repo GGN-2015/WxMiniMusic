@@ -1,15 +1,60 @@
 /* pages/my/my.wxss */
-.in {
-    border-radius: 50rpx;
-
+.contraine{
+  background-color: aqua;
+  display: flex;
+  
 }
 
-.search {
+.in{
+  border-radius: 50rpx;
+  background-color: #fff;
+}
+.position_search{
+ 
+  padding-top: 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#input{
+  padding-left: 2vw;
+}
+input{
+  width:93vw;
+}
+.search{
+  justify-content: space-between;
+  display: flex;
+  background-color: rgb(238, 238, 238);
+  border-radius: 60rpx;
+  width: 99vw;
+  padding-right: 1vw;
+  padding-left: 1vw;
+}
+.im{
+  width: 25px;
+  height:25px;
+}
+  .s_v{
+    padding-left: 2vw;
+    padding-top: 3vw;
     display: flex;
-
-}
-
-.im {
-    width: 25px;
-    height: 25px;
-}
+    justify-content: left;
+    align-items: center;
+    padding-bottom: 1vw;
+    border-bottom: 3rpx solid rgb(116, 116, 116);
+  }
+  .nage{
+    display: flex;
+  }
+  .vv1{
+    font-size: 4vw;
+     display: flex;
+     
+   }
+   .tt1{
+     font-size: 3vw;
+    display: flex;
+     align-items: flex-end;
+     padding-left: 1vw;
+   }

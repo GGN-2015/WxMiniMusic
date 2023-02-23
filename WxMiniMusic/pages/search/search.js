@@ -48,8 +48,14 @@ Page({
         this.setData({
             inputValue: ""
         })
-        this.setData({
-            ms: []
+        SendHttpRequest(this, GlobalDominName, GlobalPort, {
+            type: "MusicRank",
+            count: 10
+        }, (ret) => {
+            console.log(ret)
+            this.setData({
+                ms: ret.result
+            })
         })
     },
     handleinput(e) {
@@ -64,14 +70,20 @@ Page({
                 ms: ret.result
             })
         })
-
-
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        console.log(options.id)
+        SendHttpRequest(this, GlobalDominName, GlobalPort, {
+            type: "MusicRank",
+            count: 10
+        }, (ret) => {
+            console.log(ret)
+            this.setData({
+                ms: ret.result
+            })
+        })
     },
 
     /**
