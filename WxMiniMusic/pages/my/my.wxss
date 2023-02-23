@@ -120,6 +120,7 @@ page {
     background-color: white;
     margin: 20rpx;
     border-radius: 10rpx;
+    flex: 4;
 }
 
 .follow-empty-line-view {
@@ -127,4 +128,24 @@ page {
     font-size: small;
     padding: 10rpx;
     padding-left: 20rpx;
+}
+
+.follow-empty-container {
+    display: flex;
+}
+
+.follow-empty-line-view {
+    flex: 1;
+}
+
+.follow-empty-image {
+    width: 150rpx;
+    border-radius: 10rpx;
+}
+
+.follow-empty-image-view {
+    background-color: white;
+    margin: 20rpx;
+    border-radius: 10rpx;
+    flex: 1;
 }

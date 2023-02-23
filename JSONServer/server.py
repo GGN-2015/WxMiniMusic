@@ -282,6 +282,17 @@ def getComposerTypeDetail(name):
         "result": []
     }
 
+def saveFeedBack(nickName, content):
+    mem = loadDB("feedback.json")
+    mem.append({
+        "nickName": nickName,
+        "content": content
+    })
+    saveDB(mem, "feedback.json")
+    return {
+        'result': "反馈成功"
+    }
+
 def getDataByInput(inputData): # 根据输入获取数据    
     data = {'result' : 'type unknown.'}
 
@@ -322,7 +333,9 @@ def getDataByInput(inputData): # 根据输入获取数据
 
     elif inputData.get("type") == "ComposerTypeDetail":
         data = getComposerTypeDetail(inputData.get("name"))
-        pass
+
+    elif inputData.get("type") == "FeedBack":
+        data = saveFeedBack(inputData.get("nickName"), inputData.get("content"))
 
     print("return data", data)
     return data

@@ -34,7 +34,9 @@ Page({
         avatarUrl: "../../icon/visitor.jfif",
         nickName: "访客用户",
         collection: [],
-        motto: ""
+        motto: "",
+        showFeedBack: false,
+        feedBackData: ""
     },
     handleTap(e) {
         /*if(islogin){
@@ -182,5 +184,46 @@ Page({
         wx.navigateTo({
           url: '/pages/musicContent/musicContent?name=' + name,
         })
+    },
+
+    ShowFeedBack(e) {
+        this.setData({
+            showFeedBack: true
+        })
+    },
+
+    FeedBackCancel(e) {
+        this.setData({
+            showFeedBack: false
+        })
+    },
+
+    FeedBackConfirm(e) {
+        if(this.data.feedBackData != "") {
+            SendHttpRequest(this, GlobalDominName, GlobalPort, {
+                type: "FeedBack",
+                nickName: this.data.nickName,
+                content: this.data.feedBackData
+            }, ret => {
+                this.setData({
+                    showFeedBack: false
+                })
+                wx.showToast({
+                  title: '反馈提交成功'
+                })
+            })
+        }else {
+            wx.showToast({
+              title: '反馈不能为空',
+              icon: "error"
+            })
+        }
+    },
+
+    InputFeedBack(e) {
+        this.setData({
+            feedBackData: e.detail.value
+        })
+        console.log(this.data.feedBackData)
     }
 })

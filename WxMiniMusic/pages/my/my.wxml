@@ -1,16 +1,16 @@
 <!--pages/my/my.wxml-->
 <view class="name-bar-view">
-<image class="avatar name-bar-avatar" src="{{avatarUrl}}" mode="widthFix" />
-<view class="name-bar-text">
-    <view>
+    <image class="avatar name-bar-avatar" src="{{avatarUrl}}" mode="widthFix" />
+    <view class="name-bar-text">
         <view>
-            <text class="name-bar-name-text">{{nickName}}</text>
-        </view>
-        <view class="name-bar-motto-text">
-            <text>{{motto.motto}}</text>
+            <view>
+                <text class="name-bar-name-text">{{nickName}}</text>
+            </view>
+            <view class="name-bar-motto-text">
+                <text>{{motto.motto}}</text>
+            </view>
         </view>
     </view>
-</view>
 
 </view>
 <block wx:if="{{isLogin != true}}">
@@ -45,19 +45,30 @@
         </view>
     </block>
     <block wx:if="{{collection.length == 0}}">
-        <view class="follow-empty">
-            <view class="follow-empty-line-view">
-                <text>你还未收藏歌曲</text>
+        <view class="follow-empty-container">
+            <view class="follow-empty">
+                <view class="follow-empty-line-view">
+                    <text>你还未收藏歌曲</text>
+                </view>
+                <view class="follow-empty-line-view">
+                    <text>快去收藏吧~</text>
+                </view>
             </view>
-            <view class="follow-empty-line-view">
-                <text>快去收藏吧~</text>
+            <view class="follow-empty-image-view">
+                <image class="follow-empty-image" src="../../icon/leaf.png" mode="widthFix"/>
             </view>
         </view>
+
     </block>
     <view class="feedback-view">
         <image class="feedback-image" src="../../icon/feedback.png" mode="widthFix" />
-        <view class="feedback-text">
+        <view class="feedback-text" bindtap="ShowFeedBack">
             <text class="feedback-inner-text">意见反馈</text>
         </view>
     </view>
+    <modal hidden="{{!showFeedBack}}" title="请输入反馈内容" 
+   			confirm-text="提交" cancel-text="取消" bindcancel="FeedBackCancel" 
+   			bindconfirm="FeedBackConfirm">
+     <textarea placeholder="请输入内容" bindinput="InputFeedBack"></textarea>
+   </modal>
 </block>
