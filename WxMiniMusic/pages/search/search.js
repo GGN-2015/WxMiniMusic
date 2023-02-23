@@ -90,10 +90,11 @@ Page({
     onLoad(options) {
         var content = ""
         try {
-            content = options.id;
+            content = options.id || "";
         }catch(err) {
             content = ""; // option.id undefined
         }
+        console.log(content)
         if (content != "" && content != undefined) {
             this.setData({
                 search: content

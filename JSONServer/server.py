@@ -10,7 +10,7 @@ def saveDB(mem: dict, filename: str):
 
 host_ip = '0.0.0.0'
 host = (host_ip, 1200)
-IMG_IP = "127.0.0.1" # TODO: 这里最终要改成 127.0.0.1
+IMG_IP = "192.168.43.123" # TODO: 这里最终要改成 127.0.0.1
 IMG_PORT = 8000 # 对象服务器接口
 
 def SafeGet(x, key):

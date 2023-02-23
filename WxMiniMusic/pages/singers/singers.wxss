@@ -1,17 +1,18 @@
 /* pages/singers/singers.wxss */
-.classification{
+.classification {
     display: flex;
     justify-content: center;
     font-size: 40rpx;
 }
-.parent{
+
+.parent {
     display: flex;
     justify-content: space-between;
-    background-color:rgb(245, 245, 245);
-  }
+    background-color: rgb(245, 245, 245);
+}
 
-   
-  .son{
+
+.son {
     width: 120rpx;
     height: 80rpx;
     line-height: 120rpx;
@@ -19,39 +20,49 @@
     color: #363534;
     padding-left: 10rpx;
     padding-right: 20rpx;
-    font-family:cursive;
+    font-family: cursive;
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     background-color: rgb(236, 236, 236);
-  }
+}
 
-  .Mixitem{
+.Mixitem {
     display: flex;
-    flex-wrap: wrap; /**自动换行***/
-    margin-top:10rpx;
+    flex-wrap: wrap;
+    /**自动换行***/
+    margin-top: 10rpx;
 
-  }
-  .item{
+}
+
+.item {
     display: flex;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     flex-direction: column;
-    padding:22rpx;
+    padding: 22rpx;
     border-bottom: 5rpx solid rgb(160, 159, 159);
     flex-wrap: wrap;
-    align-content:flex-start
-  }
-  .MixPic image{
+    align-content: flex-start
+}
+
+.MixPic image {
     height: 230rpx;
     width: 230rpx;
     border-radius: 50rpx;
-  }
-  .MixText{
+}
+
+.MixText {
     color: #7A7A7A;
     font-size: 26rpx;
     width: 160rpx;
-  }
-  .title{
-   font-size: 30rpx;
-   color:#444040
-  }
+}
+
+.title {
+    font-size: 30rpx;
+    color: #444040
+}
+
+.son-dark {
+    background-color: grey;
+    color: white;
+}

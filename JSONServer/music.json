@@ -1,13 +1,13 @@
 [
     {
-        "name": "测试音乐",
+        "name": "雨だれの歌",
         "composer": "水濑祈",
         "image": "pic/MoreOneNight.jpg",
         "category": [
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 26
+        "play": 32
     },
     {
         "name": "白日",
@@ -18,7 +18,7 @@
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 14,
+        "play": 15,
         "found": true
     },
     {
@@ -41,7 +41,7 @@
             "流行"
         ],
         "source": "music/Test.mp3",
-        "play": 22
+        "play": 26
     },
     {
         "name": "情人",
@@ -52,7 +52,7 @@
             "爱情"
         ],
         "source": "music/Test.mp3",
-        "play": 72,
+        "play": 73,
         "found": true
     },
     {
@@ -74,7 +74,7 @@
             "爱情"
         ],
         "source": "music/Test.mp3",
-        "play": 8,
+        "play": 9,
         "found": true
     },
     {
@@ -95,7 +95,7 @@
             "纯音乐"
         ],
         "source": "music/Test.mp3",
-        "play": 9
+        "play": 10
     },
     {
         "name": "Last Dance",

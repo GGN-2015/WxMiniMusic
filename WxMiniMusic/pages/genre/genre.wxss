@@ -64,4 +64,5 @@
 
 .son-dark {
     background-color: grey;
+    color: white;
 }

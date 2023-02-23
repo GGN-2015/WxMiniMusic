@@ -4,9 +4,6 @@ const GlobalDominName = getApp().globalData.globalDominName
 const GlobalPort = getApp().globalData.globalPort
 
 function SendHttpRequest(PageItem, DominName, Port, Datas, TidyFunction) {
-    PageItem.setData({
-        httpRetObj: "{}"
-    })
     wx.request({
         url: 'http://' + DominName + ':' + Port,
         method: 'POST',

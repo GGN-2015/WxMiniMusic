@@ -92,16 +92,17 @@ function SetMusicAndStop(PageObj, music_url) {
     var bgmM = wx.getBackgroundAudioManager()
     bgmM.src = music_url;
     bgmM.title = "tmp"
+    bgmM.seek(0)
     SetGlobalIsPlay(PageObj, false)
 }
 
-function Stopper() {
+function Stopper(cnt = 10) {
     console.log("run stopper()")
     var bgmM = wx.getBackgroundAudioManager()
-    if(!(bgmM.paused === true)) {
+    if(!(bgmM.paused === true) || cnt > 0) {
         bgmM.pause()
         setTimeout(function() {
-            Stopper()
+            Stopper(cnt - 1)
         }, TIME_BREAK)
     }
 }
@@ -163,7 +164,7 @@ Page({
                     wx.redirectTo({
                       url: '../../pages/home/home',
                     })
-                }, 1500)
+                }, TIME_BREAK * 10)
             }
         })
     },
@@ -217,6 +218,7 @@ Page({
         }
         GlobalPriorityPos = 0
         GLobalStepperId = RandInt(0, 1000000000)
+        Stopper()
     },
 
     /**
@@ -229,6 +231,7 @@ Page({
         }
         GlobalPriorityPos = 0
         GLobalStepperId = RandInt(0, 1000000000)
+        Stopper()
     },
 
     /**
