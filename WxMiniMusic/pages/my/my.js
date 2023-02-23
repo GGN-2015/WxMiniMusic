@@ -33,7 +33,8 @@ Page({
         isLogin: false,
         avatarUrl: "",
         nickName: "",
-        collection: []
+        collection: [],
+        motto: ""
     },
     handleTap(e) {
         /*if(islogin){
@@ -63,22 +64,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        var PageItem = this;
-        if(getApp().isLogin()) {
-            PageItem.setData({
-                isLogin: true,
-                avatarUrl: getApp().globalData.userInfo.avatarUrl,
-                nickName: getApp().globalData.userInfo.nickName
-            })
-            SendHttpRequest(PageItem, GlobalDominName, GlobalPort, {
-                type: "Collection",
-                nickName: PageItem.data.nickName
-            }, ret => {
-                PageItem.setData({
-                    collection: ret.result
-                })
-            })
-        }
+        this.ResetCollection();
+        this.GetRandomMotto()
     },
 
     /**
@@ -92,7 +79,8 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.ResetCollection()
+        this.GetRandomMotto()
     },
 
     /**
@@ -134,7 +122,7 @@ Page({
         var PageItem = this;
         wx.showModal({
             title: '确定要取消收藏吗',
-            content: '确定后可以在歌曲详情页重新收藏',
+            content: '可以在歌曲详情页重新收藏',
             complete: (res) => {
                 if (res.cancel) {
                     // do nothing
@@ -154,6 +142,35 @@ Page({
                     })
                 }
             }
+        })
+    },
+
+    ResetCollection() {
+        var PageItem = this;
+        if(getApp().isLogin()) {
+            PageItem.setData({
+                isLogin: true,
+                avatarUrl: getApp().globalData.userInfo.avatarUrl,
+                nickName: getApp().globalData.userInfo.nickName
+            })
+            SendHttpRequest(PageItem, GlobalDominName, GlobalPort, {
+                type: "Collection",
+                nickName: PageItem.data.nickName
+            }, ret => {
+                PageItem.setData({
+                    collection: ret.result
+                })
+            })
+        }
+    }, 
+
+    GetRandomMotto() {
+        SendHttpRequest(this, GlobalDominName, GlobalPort, {
+            type: "GetRandomMotto"
+        }, ret => {
+            this.setData({
+                motto: ret.result
+            })
         })
     }
 })

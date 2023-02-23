@@ -1,17 +1,33 @@
 <!--pages/my/my.wxml-->
 <block wx:if="{{isLogin != true}}">
-  <button type="primary" bindtap="handleTap">登录</button>
-  <text>尚未登录</text>
+    <button type="primary" bindtap="handleTap">登录</button>
+    <text>尚未登录</text>
 </block>
 <block wx:else>
-  <image src="{{avatarUrl}}" mode=""/>
-  <block 
-    wx:for="{{collection}}"
-    wx:key="name">
-    <view>
-      <button bindtap="UnFollow" data-name="{{item.name}}">取消关注</button>
-      <image src="{{item.image}}" mode=""/>
-      {{item.name}}{{item.composer}}
+    <view class="name-bar-view">
+        <image class="avatar name-bar-avatar" src="{{avatarUrl}}" mode="widthFix" />
+        <view class="name-bar-text">
+            <view>
+                <view>
+                    <text class="name-bar-name-text">{{nickName}}</text>
+                </view>
+                <view class="name-bar-motto-text">
+                    <text>{{motto.motto}}</text>
+                </view>
+            </view>
+        </view>
     </view>
-  </block>
+    <block wx:for="{{collection}}" wx:key="name">
+        <view class="collection-bar-view">
+            <image src="{{item.image}}" class="collection-bar-image" mode="widthFix" />
+            <view>
+                <text>{{item.name}}</text>
+                <text>{{item.composer}}</text>
+                <button bindtap="UnFollow" data-name="{{item.name}}">取消关注</button>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{collection.length == 0}}">
+        你还未收藏歌曲，快去收藏吧
+    </block>
 </block>

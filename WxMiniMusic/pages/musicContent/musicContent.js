@@ -152,7 +152,7 @@ Page({
         setTimeout(function () { // 此处需要异步调用相关接口
             const posNow = rate * bgmM.duration;
             bgmM.seek(posNow);
-            bgmM.pause()
+            if(!bgmM.paused) bgmM.pause()
 
             PageItem.setData({
                 animation: 'none'
@@ -174,7 +174,7 @@ Page({
         var bgmM = wx.getBackgroundAudioManager();
         setTimeout(function () {
             bgmM.seek(0)
-            bgmM.pause()
+            if(!bgmM.paused) bgmM.pause()
         }, TIME_BREAK * 4)
     },
 
@@ -189,7 +189,7 @@ Page({
     onHide() {
         if (GLobalIsPlay == true) {
             var bgmM = wx.getBackgroundAudioManager()
-            bgmM.pause()
+            if(!bgmM.paused) bgmM.pause()
         }
         GlobalPriorityPos = 0
     },
@@ -200,7 +200,7 @@ Page({
     onUnload() {
         if (GLobalIsPlay == true) {
             var bgmM = wx.getBackgroundAudioManager()
-            bgmM.pause()
+            if(!bgmM.paused) bgmM.pause()
         }
         GlobalPriorityPos = 0
     },
@@ -234,7 +234,7 @@ Page({
             })
 
             var bgmM = wx.getBackgroundAudioManager()
-            bgmM.pause()
+            if(!bgmM.paused) bgmM.pause()
             this.setData({
                 animation: 'none'
             })

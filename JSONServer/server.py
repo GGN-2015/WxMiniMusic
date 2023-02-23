@@ -1,5 +1,6 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
+import random
 
 def loadDB(filename: str):
     return json.load(open(filename, 'r', encoding='utf-8'))
@@ -9,7 +10,7 @@ def saveDB(mem: dict, filename: str):
 
 host_ip = '0.0.0.0'
 host = (host_ip, 1200)
-IMG_IP = "127.0.0.1" # TODO: 这里最终要改成 127.0.0.1
+IMG_IP = "192.168.43.123" # TODO: 这里最终要改成 127.0.0.1
 IMG_PORT = 8000 # 对象服务器接口
 
 def SafeGet(x, key):
@@ -250,6 +251,12 @@ def setFollow(nickName, name):
         mem[nickName]['Collection'].append(name)
         saveDB(mem, 'user.json')
 
+def getRandomMotto():
+    mem = loadDB('motto.json')
+    idx = random.randint(0, len(mem) - 1)
+    return {
+        "result": mem[idx]
+    }
 
 def getDataByInput(inputData): # 根据输入获取数据    
     data = {'result' : 'type unknown.'}
@@ -285,7 +292,9 @@ def getDataByInput(inputData): # 根据输入获取数据
     elif inputData.get("type") == "SetFollow":
         setFollow(inputData.get("nickName"), inputData.get("name"))
         data = getCollection(inputData.get("nickName"), inputData.get("count"))
-        pass
+    
+    elif inputData.get("type") == "GetRandomMotto":
+        data = getRandomMotto()
 
     print("return data", data)
     return data

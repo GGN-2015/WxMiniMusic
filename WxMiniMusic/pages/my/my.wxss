@@ -1,1 +1,50 @@
 /* pages/my/my.wxss */
+.avatar {
+    border-radius: 125rpx;
+}
+
+page {
+    background-color: #E8E6E6;
+}
+
+.name-bar-view {
+    display: flex;
+    background-color: white;
+    padding: 10rpx;
+    margin: 10rpx;
+    border-radius: 10rpx;
+}
+
+.name-bar-avatar {
+    flex: 3;
+}
+
+.name-bar-text {
+    flex: 10;
+    display: flex;
+    justify-content: left;
+    padding-left: 50rpx;
+    padding-top: 15rpx;
+}
+
+.collection-bar-view {
+    margin: 10rpx;
+    padding: 10rpx;
+    background-color: white;
+    display: flex;
+}
+
+.collection-bar-image {
+    width: 200rpx;
+}
+
+.name-bar-name-text {
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.name-bar-motto-text {
+    font-size: smaller;
+    padding-top: 10rpx;
+    color: grey;
+}

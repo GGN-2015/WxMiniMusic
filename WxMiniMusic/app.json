@@ -1,17 +1,32 @@
 {
-  "pages":[
-    "pages/home/home",
-    "pages/genre/genre",
-    "pages/my/my",
-    "pages/search/search",
-    "pages/musicContent/musicContent"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/home/home",
+        "pages/genre/genre",
+        "pages/my/my",
+        "pages/search/search",
+        "pages/musicContent/musicContent"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [{
+                "pagePath": "pages/home/home",
+                "text": "发现",
+                "iconPath": "icons/_home.png",
+                "selectedIconPath": "icons/home.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "icons/_moment.png",
+                "selectedIconPath": "icons/moment.png"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
 }
