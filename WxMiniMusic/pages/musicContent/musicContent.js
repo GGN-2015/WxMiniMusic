@@ -335,7 +335,7 @@ Page({
                     realTimeNow
                 })
                 bgmM.seek(timeNow)
-                console({timeNow})
+                console.log({timeNow})
             } else {
                 console.log("goes on")
             }

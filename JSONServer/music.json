@@ -7,7 +7,7 @@
             "动漫"
         ],
         "source": "music/Test.mp3",
-        "play": 38
+        "play": 100
     },
     {
         "name": "白日",
@@ -30,7 +30,7 @@
             "纯音乐"
         ],
         "source": "music/jb.mp3",
-        "play": 46
+        "play": 52
     },
     {
         "name": "漠河舞厅",
@@ -41,7 +41,7 @@
             "流行"
         ],
         "source": "music/漠河舞厅.m4a",
-        "play": 38
+        "play": 39
     },
     {
         "name": "情人",
